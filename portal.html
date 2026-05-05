@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paradise Estate Mykonos — Project Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#faf8f5;--surface:#ffffff;--card:#ffffff;--card-hover:#fdfcfa;--border:#e8e2d9;--border-hover:#d4cbc0;--stone:#8c7e6f;--stone-light:#b5a898;--stone-dark:#5c5047;--warm:#c9a96e;--warm-light:#dfc9a0;--warm-dim:rgba(140,126,111,0.15);--blue:#5b8fa8;--green:#6b9e8a;--red:#c47a6e;--purple:#8e7ba8;--text:#2c2520;--text-dim:#6b5e54;--font:'Inter',system-ui,-apple-system,sans-serif;--font-display:'Cormorant Garamond',Georgia,serif;--radius:12px;--shadow:0 4px 20px rgba(92,80,71,0.08)}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;scroll-behavior:smooth}
+
+/* Hero images */
+.hero-banner{width:100%;height:320px;object-fit:cover;border-radius:var(--radius);margin-bottom:2rem;box-shadow:0 8px 40px rgba(92,80,71,0.12)}
+.hero-banner-full{width:calc(100% + 5rem);margin-left:-2.5rem;margin-top:-2.5rem;margin-bottom:2.5rem;height:400px;object-fit:cover;border-radius:0}
+.img-card{width:100%;height:200px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;margin:-1.5rem -1.5rem 1.25rem -1.5rem;width:calc(100% + 3rem)}
+
+/* Navigation */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;height:64px;transition:all 0.3s}
+.nav.scrolled{height:56px;box-shadow:0 2px 20px rgba(92,80,71,0.06)}
+.nav-brand{font-family:var(--font-display);font-size:1.3rem;font-weight:400;color:var(--stone-dark);letter-spacing:2px;white-space:nowrap}
+.nav-links{display:flex;gap:0.25rem;margin-left:2.5rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{padding:0.5rem 1.1rem;border-radius:8px;cursor:pointer;font-size:0.78rem;color:var(--text-dim);transition:all 0.25s;white-space:nowrap;border:none;background:none;font-weight:500;letter-spacing:0.3px}
+.nav-link:hover{color:var(--text);background:rgba(140,126,111,0.06)}
+.nav-link.active{color:var(--stone-dark);background:rgba(140,126,111,0.1);font-weight:600}
+.mobile-toggle{display:none;background:none;border:none;color:var(--stone-dark);font-size:1.5rem;cursor:pointer;padding:0.5rem}
+
+/* Main Content */
+main{margin-top:64px;padding:2.5rem;max-width:1440px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
+.section{display:none;animation:fadeIn 0.5s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* Typography */
+h1{font-family:var(--font-display);font-size:2.8rem;color:var(--stone-dark);margin-bottom:0.5rem;font-weight:300;letter-spacing:0.5px}
+h2{font-family:var(--font-display);font-size:1.6rem;color:var(--stone-dark);margin:3rem 0 1.25rem;font-weight:400;position:relative;padding-left:1.25rem}
+h2::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:55%;background:var(--warm);border-radius:2px}
+h3{font-size:0.95rem;color:var(--stone);margin:1.5rem 0 0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+p{color:var(--text-dim);margin-bottom:1rem;font-size:0.88rem}
+.subtitle{color:var(--stone-light);font-size:1.05rem;margin-bottom:2.5rem;font-weight:300;letter-spacing:0.3px}
+
+/* Grid */
+.grid{display:grid;gap:1.5rem}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+
+/* Cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:all 0.3s;position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-hover);transform:translateY(-2px);box-shadow:0 12px 40px rgba(92,80,71,0.08)}
+.card-title{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.4rem}
+.card-subtitle{font-size:0.78rem;color:var(--stone-light);margin-bottom:0.75rem}
+
+/* Badges */
+.badge{display:inline-block;padding:0.25rem 0.7rem;border-radius:20px;font-size:0.68rem;font-weight:600;margin-right:0.4rem;margin-bottom:0.4rem;letter-spacing:0.3px}
+.badge-gold{background:rgba(201,169,110,0.1);color:var(--warm);border:1px solid rgba(201,169,110,0.25)}
+.badge-blue{background:rgba(91,143,168,0.08);color:var(--blue);border:1px solid rgba(91,143,168,0.2)}
+.badge-green{background:rgba(107,158,138,0.08);color:var(--green);border:1px solid rgba(107,158,138,0.2)}
+.badge-red{background:rgba(196,122,110,0.08);color:var(--red);border:1px solid rgba(196,122,110,0.2)}
+.badge-purple{background:rgba(142,123,168,0.08);color:var(--purple);border:1px solid rgba(142,123,168,0.2)}
+
+/* Stats */
+.stat-row{display:flex;gap:1.25rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;flex:1;min-width:180px;transition:all 0.3s;position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--warm),var(--warm-light));opacity:0.6}
+.stat:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(92,80,71,0.06)}
+.stat-value{font-family:var(--font-display);font-size:2.2rem;font-weight:300;color:var(--stone-dark);letter-spacing:-0.5px}
+.stat-label{font-size:0.68rem;color:var(--stone-light);text-transform:uppercase;letter-spacing:1.2px;margin-top:0.4rem}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+th,td{padding:0.85rem 1.1rem;text-align:left;border-bottom:1px solid var(--border);font-size:0.83rem}
+th{color:var(--stone);font-weight:600;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.8px;background:rgba(140,126,111,0.04)}
+td{color:var(--text-dim)}
+tr:hover td{color:var(--text);background:rgba(140,126,111,0.02)}
+.table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);background:var(--card);box-shadow:0 2px 12px rgba(92,80,71,0.04)}
+
+/* Tiers */
+.tier{border-left:3px solid var(--warm);padding-left:1.5rem;margin-bottom:2.5rem;transition:all 0.3s}
+.tier:hover{padding-left:2rem}
+.tier-name{font-family:var(--font-display);font-size:1.3rem;font-weight:400;color:var(--text)}
+.tier-price{font-family:var(--font-display);font-size:1.8rem;color:var(--stone-dark);font-weight:300;margin:0.25rem 0}
+.tier-cap{font-size:0.78rem;color:var(--stone-light)}
+
+/* Lists */
+ul{list-style:none;padding:0}
+ul li{padding:0.4rem 0;color:var(--text-dim);font-size:0.85rem}
+ul li::before{content:"→ ";color:var(--warm);font-weight:600}
+
+/* Misc */
+.tag-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.75rem 0}
+.highlight{background:linear-gradient(135deg,rgba(201,169,110,0.06),rgba(250,248,245,1));border:1px solid rgba(201,169,110,0.2);border-radius:var(--radius);padding:2rem;margin:1.5rem 0}
+.month-tab{display:inline-block;padding:0.5rem 1.1rem;border-radius:8px;cursor:pointer;font-size:0.78rem;color:var(--text-dim);border:1px solid var(--border);margin:0.25rem;transition:all 0.25s;font-weight:500}
+.month-tab:hover,.month-tab.active{color:var(--stone-dark);border-color:var(--warm);background:rgba(201,169,110,0.06)}
+.month-content{display:none;animation:fadeIn 0.3s ease}
+.month-content.active{display:block}
+
+/* Scroll to top */
+.scroll-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--border);color:var(--stone-dark);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:all 0.3s;z-index:99;box-shadow:var(--shadow)}
+.scroll-top.visible{opacity:1;transform:translateY(0)}
+.scroll-top:hover{background:var(--stone-dark);color:white;border-color:var(--stone-dark)}
+
+/* Page indicator */
+.page-indicator{position:fixed;top:64px;left:0;height:2px;background:linear-gradient(90deg,var(--warm),var(--warm-light));z-index:101;transition:width 0.3s}
+
+/* Responsive */
+@media(max-width:768px){
+.nav{padding:0 1rem;height:56px}
+.nav-brand{font-size:1.1rem}
+.nav-links{margin-left:0.75rem;gap:0.15rem}
+.nav-link{padding:0.4rem 0.7rem;font-size:0.72rem}
+main{padding:1.25rem;margin-top:56px}
+h1{font-size:2rem}
+h2{font-size:1.3rem}
+.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+.stat-row{flex-direction:column;gap:0.75rem}
+.stat-value{font-size:1.6rem}
+.scroll-top{bottom:1rem;right:1rem;width:38px;height:38px}
+.hero-banner{height:200px}
+.hero-banner-full{height:250px;width:calc(100% + 2.5rem);margin-left:-1.25rem;margin-top:-1.25rem}
+.img-card{height:150px}
+}
+@media(max-width:480px){
+.nav-links{display:none}
+.nav-links.open{display:flex;position:absolute;top:56px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:0.75rem;flex-wrap:wrap;justify-content:center;box-shadow:var(--shadow)}
+.mobile-toggle{display:block}
+}
+</style>
+</head>
+<body>
+<div id="authGate" style="position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem">
+<div style="text-align:center">
+<div style="font-size:2rem;color:var(--gold);margin-bottom:0.5rem;letter-spacing:2px">◈ PARADISE ESTATE</div>
+<div style="color:var(--text-dim);font-size:0.85rem">Private Portal — Authorized Access Only</div>
+</div>
+<form id="authForm" style="display:flex;flex-direction:column;gap:1rem;width:280px">
+<input id="authInput" type="password" placeholder="Enter access code" autocomplete="off" style="padding:0.85rem 1.2rem;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:0.9rem;outline:none;text-align:center;letter-spacing:2px">
+<button type="submit" style="padding:0.85rem;border-radius:10px;border:1px solid var(--gold);background:rgba(201,169,110,0.1);color:var(--gold);font-size:0.85rem;cursor:pointer;font-weight:600;letter-spacing:1px;transition:all 0.2s">ENTER</button>
+<div id="authError" style="color:var(--red);font-size:0.75rem;text-align:center;display:none">Invalid access code</div>
+</form>
+</div>
+<script>
+(function(){
+const hash='a9b2d8ae82c755ead45c2eb93ad2ba61045357cb39d5921c4f7281ad41091de8';
+async function sha256(m){const b=new TextEncoder().encode(m);const h=await crypto.subtle.digest('SHA-256',b);return Array.from(new Uint8Array(h)).map(x=>x.toString(16).padStart(2,'0')).join('')}
+if(sessionStorage.getItem('pe_auth')==='1'){document.getElementById('authGate').style.display='none'}
+document.getElementById('authForm').addEventListener('submit',async function(e){
+e.preventDefault();
+const v=document.getElementById('authInput').value;
+const h=await sha256(v);
+if(h===hash){sessionStorage.setItem('pe_auth','1');document.getElementById('authGate').style.display='none'}
+else{document.getElementById('authError').style.display='block';document.getElementById('authInput').value=''}
+});
+})();
+</script>
+<nav class="nav">
+<div class="nav-brand">◈ PARADISE ESTATE</div>
+<button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+<div class="nav-links">
+<button class="nav-link active" data-section="overview">Overview</button>
+<button class="nav-link" data-section="properties">Properties</button>
+<button class="nav-link" data-section="calendar">Calendar</button>
+<button class="nav-link" data-section="experiences">Experiences</button>
+<button class="nav-link" data-section="members">Members Club</button>
+<button class="nav-link" data-section="event">July Event</button>
+<button class="nav-link" data-section="financials">Financials</button>
+<button class="nav-link" data-section="marketing">Marketing</button>
+</div>
+</nav>
+<div class="page-indicator" id="pageIndicator"></div>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<main>
+<div id="overview" class="section active">
+<img src="https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1400&h=400&fit=crop&crop=center" alt="Mykonos white architecture overlooking the Aegean Sea" class="hero-banner-full">
+<h1>Paradise Estate Mykonos</h1>
+<p class="subtitle">Project Portal — Property Management & Luxury Experience Curation</p>
+<div class="stat-row">
+<div class="stat"><div class="stat-value">10,000m²</div><div class="stat-label">Estate Area</div></div>
+<div class="stat"><div class="stat-value">36</div><div class="stat-label">Guest Capacity</div></div>
+<div class="stat"><div class="stat-value">17+</div><div class="stat-label">Bedrooms</div></div>
+<div class="stat"><div class="stat-value">€1.05M</div><div class="stat-label">Members Club Revenue Target</div></div>
+<div class="stat"><div class="stat-value">800</div><div class="stat-label">Event Capacity (Cocktail)</div></div>
+</div>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-title">Property Overview</div>
+<div class="card-subtitle">Pirgi, South-Eastern Mykonos</div>
+<p>Luxury compound with 3 villas, 6+ suites, private helipad, on-site church, ancient Greek amphitheatre, professional kitchen, 16m infinity pool, basketball court, gym, and 12-person hot tub.</p>
+<div class="tag-row">
+<span class="badge badge-gold">Helipad</span>
+<span class="badge badge-gold">Private Church</span>
+<span class="badge badge-gold">Amphitheatre</span>
+<span class="badge badge-blue">Pro Kitchen (300 seated)</span>
+<span class="badge badge-green">Pentagon Security</span>
+<span class="badge badge-purple">230° Sea Views</span>
+</div>
+</div>
+<div class="card">
+<div class="card-title">Current Market Position</div>
+<div class="card-subtitle">Mid-Luxury — Significant Upside</div>
+<p>Currently positioned at €768–€2,835/night (individual villas) vs. ultra-premium at €4,000–€15,000/night. Estate amenities justify higher rates.</p>
+<h3>Critical Gaps Identified</h3>
+<ul>
+<li>3 total public reviews (severe social proof deficit)</li>
+<li>Instagram dormant since 2023</li>
+<li>No direct booking engine</li>
+<li>Mixed brand messaging (party vs. serene)</li>
+<li>Website broken shortcodes, outdated copyright</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-title">Key Distances</div>
+<div class="card-subtitle">Main Estate — Pirgi</div>
+<div class="table-wrap">
+<table>
+<tr><td>Mykonos Airport (JMK)</td><td>3 km (~7 min)</td></tr>
+<tr><td>Mykonos Town</td><td>6 km</td></tr>
+<tr><td>Super Paradise Beach</td><td>1.5 km</td></tr>
+<tr><td>Paradise Beach</td><td>~3 km</td></tr>
+<tr><td>Platis Gialos Beach</td><td>~5 min drive</td></tr>
+</table>
+</div>
+</div>
+<div class="card">
+<div class="card-title">Project Phases</div>
+<div class="card-subtitle">5-Phase Implementation Plan</div>
+<ul>
+<li><strong>Phase 0:</strong> Deal Structure & Owner Proposal (Weeks 1–2)</li>
+<li><strong>Phase 1:</strong> Foundation & Quick Wins (Weeks 1–4)</li>
+<li><strong>Phase 2:</strong> Brand Repositioning (Weeks 4–8)</li>
+<li><strong>Phase 3:</strong> Luxury Experience Program (Weeks 4–12)</li>
+<li><strong>Phase 4:</strong> Operations & Systems (Weeks 6–12)</li>
+<li><strong>Phase 5:</strong> Marketing & Growth (Months 3–12)</li>
+</ul>
+</div>
+</div>
+<h2>Distribution Partners</h2>
+<div class="grid grid-4">
+<div class="card"><div class="card-title">Airbnb</div><div class="card-subtitle">6 listings • No badges</div></div>
+<div class="card"><div class="card-title">Abercrombie & Kent</div><div class="card-subtitle">Full estate • Premium</div></div>
+<div class="card"><div class="card-title">VRBO</div><div class="card-subtitle">3+ listings • 3 reviews</div></div>
+<div class="card"><div class="card-title">The Villa Collection</div><div class="card-subtitle">UK luxury • Rate cards</div></div>
+<div class="card"><div class="card-title">Dream Properties Greece</div><div class="card-subtitle">Primary booking partner</div></div>
+<div class="card"><div class="card-title">Booking.com</div><div class="card-subtitle">Casa di Luna • 0 reviews</div></div>
+<div class="card"><div class="card-title">Kinglike Concierge</div><div class="card-subtitle">Local luxury concierge</div></div>
+<div class="card"><div class="card-title">The Advanza</div><div class="card-subtitle">Lifestyle • 10% discount</div></div>
+</div>
+</div>
+
+<div id="properties" class="section">
+<img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1400&h=350&fit=crop&crop=center" alt="Luxury Greek villa with infinity pool" class="hero-banner">
+<h1>Property Inventory</h1>
+<p class="subtitle">3 Villas + 6 Suites on Main Estate • 1 Off-Site Villa (Casa di Luna)</p>
+<h2>Main Villas</h2>
+<div class="grid grid-3">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=250&fit=crop" alt="Villa Delilah" class="img-card">
+<div class="card-title">Villa Delilah</div>
+<div class="card-subtitle">Main Estate — Pirgi</div>
+<div class="tag-row"><span class="badge badge-gold">5 Bedrooms</span><span class="badge badge-blue">10 Guests</span><span class="badge badge-green">130m² Pool</span></div>
+<p>Wedding-ready villa with 3 main bedrooms + 2 guest houses (Rock House, Cinderella). Master suite with private jetted bathtub. 360° panoramic views.</p>
+<h3>Peak Rates (July)</h3>
+<p>€1,800–€2,100/night</p>
+<h3>Airbnb</h3>
+<p>ID: 1033158695874491933 • Rating: 4.55 (11 reviews)</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=250&fit=crop" alt="Villa Carina" class="img-card">
+<div class="card-title">Villa Carina</div>
+<div class="card-subtitle">Main Estate — Pirgi</div>
+<div class="tag-row"><span class="badge badge-gold">6+ Bedrooms</span><span class="badge badge-blue">12–16 Guests</span><span class="badge badge-green">110m² Heated Pool</span></div>
+<p>The "Party Villa" — largest individual villa. Professional DJ sound system, private bar, entertainment terrace. Guest houses: The Caretaker, Dungeon DJ.</p>
+<h3>Peak Rates (July)</h3>
+<p>€7,945–€9,114/night (full package)</p>
+<h3>Airbnb</h3>
+<p>ID: 1033187126973492383</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=250&fit=crop" alt="Villa Isabella" class="img-card">
+<div class="card-title">Villa Isabella</div>
+<div class="card-subtitle">Main Estate — Pirgi</div>
+<div class="tag-row"><span class="badge badge-gold">4 Bedrooms</span><span class="badge badge-blue">8–9 Guests</span><span class="badge badge-purple">Privacy-Focused</span></div>
+<p>Secluded gardens, private pool. Most privacy within the estate. Suites: Marijane, Magdaline, Mayia, Elixir.</p>
+<h3>Peak Rates (July)</h3>
+<p>€1,750–€2,100/night</p>
+<h3>Airbnb Rooms</h3>
+<p>Mary Jane • Magdaline • Maya</p>
+</div>
+</div>
+<h2>Individual Suites</h2>
+<div class="grid grid-4">
+<div class="card"><div class="card-title">The Rock House</div><div class="card-subtitle">Carina Wing • 2–4 guests</div><p>Built into natural stone. Cave aesthetic. Very private.</p></div>
+<div class="card"><div class="card-title">Cinderella Suite</div><div class="card-subtitle">Delilah Wing • 2 guests</div><p>Luxury studio. Private balcony, sea views.</p></div>
+<div class="card"><div class="card-title">Dungeon DJ</div><div class="card-subtitle">Carina Wing • 2 guests</div><p>Soundproofed. Near entertainment area.</p></div>
+<div class="card"><div class="card-title">The Caretaker</div><div class="card-subtitle">Carina Wing • 2–4 guests</div><p>Guest house attached to Villa Carina.</p></div>
+<div class="card"><div class="card-title">Marijane</div><div class="card-subtitle">Isabella Wing • 2–4 guests</div><p>Modern minimalist suite.</p></div>
+<div class="card"><div class="card-title">Magdaline</div><div class="card-subtitle">Isabella Wing • 2–4 guests</div><p>Modern minimalist suite.</p></div>
+<div class="card"><div class="card-title">Mayia</div><div class="card-subtitle">Isabella Wing • 2–4 guests</div><p>Modern minimalist suite.</p></div>
+<div class="card"><div class="card-title">Elixir</div><div class="card-subtitle">Isabella Wing • 2–4 guests</div><p>Modern minimalist suite.</p></div>
+</div>
+<h2>Off-Site Property</h2>
+<div class="grid grid-2">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=250&fit=crop" alt="Casa di Luna villa" class="img-card">
+<div class="card-title">Villa Casa di Luna</div>
+<div class="card-subtitle">Kalafatis, SE Mykonos (separate location)</div>
+<div class="tag-row"><span class="badge badge-gold">6 Bedrooms</span><span class="badge badge-blue">14 Guests</span><span class="badge badge-green">Infinity Pool</span><span class="badge badge-purple">Organic Garden</span></div>
+<p>265m² main villa + guest house (Olive Tree House). 600m from Kalafatis Beach. Peaceful, secluded. Featured in "Mykonos Villas" magazine 3 consecutive years.</p>
+<h3>Key Distances</h3>
+<p>Mykonos Town: 10 km • Airport: 9 km • Kalafatis Beach: 600m</p>
+</div>
+<div class="card">
+<div class="card-title">Full Estate Booking</div>
+<div class="card-subtitle">All 17+ bedrooms • 34–36 guests</div>
+<div class="tag-row"><span class="badge badge-gold">€63,000/week (Peak July)</span></div>
+<p>Exclusive use of entire 10,000m² complex. Includes helipad, church, amphitheatre, all villas, all suites, professional kitchen, 24/7 concierge + night security.</p>
+<h3>Via Abercrombie & Kent</h3>
+<p>$12,923/night ($90,458/week)</p>
+</div>
+</div>
+</div>
+<div id="calendar" class="section">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400&h=300&fit=crop&crop=bottom" alt="Aegean Sea sunset" class="hero-banner">
+<h1>Seasonal Calendar 2026</h1>
+<p class="subtitle">May – October • Full pricing and availability</p>
+<div style="margin-bottom:1.5rem">
+<span class="month-tab active" data-month="may" onclick="showMonth('may')">May</span>
+<span class="month-tab" data-month="jun" onclick="showMonth('jun')">June</span>
+<span class="month-tab" data-month="jul" onclick="showMonth('jul')">July</span>
+<span class="month-tab" data-month="aug" onclick="showMonth('aug')">August</span>
+<span class="month-tab" data-month="sep" onclick="showMonth('sep')">September</span>
+<span class="month-tab" data-month="oct" onclick="showMonth('oct')">October</span>
+</div>
+<div id="month-may" class="month-content active">
+<span class="badge badge-blue">Mid-Season</span><span class="badge badge-green">3–5 Night Minimum</span>
+<div class="table-wrap"><table>
+<tr><th>Property</th><th>Availability</th><th>Rate</th></tr>
+<tr><td>Villa Delilah</td><td>May 1–20 ✅ / May 21–25 ❌ / May 26–31 ✅</td><td>€1,000–€1,466/night</td></tr>
+<tr><td>Villa Carina</td><td>Full month ✅</td><td>€1,600–€2,571/night</td></tr>
+<tr><td>Villa Isabella</td><td>Full month ✅</td><td>€1,375–€1,563/night</td></tr>
+<tr><td>Full Estate</td><td>Full month (excl. Delilah dates)</td><td>€25,200/week</td></tr>
+</table></div>
+</div>
+<div id="month-jun" class="month-content">
+<span class="badge badge-blue">Transition to Peak</span><span class="badge badge-gold">Wedding Season</span>
+<div class="table-wrap"><table>
+<tr><th>Property</th><th>Rate (1–14)</th><th>Rate (15–30)</th></tr>
+<tr><td>Villa Delilah</td><td>€1,250/night</td><td>€1,400/night</td></tr>
+<tr><td>Villa Carina</td><td>€1,900/night</td><td>€2,150/night</td></tr>
+<tr><td>Villa Isabella</td><td>€1,560/night</td><td>€1,750/night</td></tr>
+<tr><td>Full Estate</td><td>€35,280/week</td><td>€44,100/week</td></tr>
+</table></div>
+</div>
+<div id="month-jul" class="month-content">
+<span class="badge badge-red">Full Peak Season</span><span class="badge badge-gold">7-Night Minimum</span>
+<div class="table-wrap"><table>
+<tr><th>Property</th><th>Rate (1–14)</th><th>Rate (15–31)</th></tr>
+<tr><td>Villa Delilah</td><td>€1,800/night</td><td>€2,100/night</td></tr>
+<tr><td>Villa Carina</td><td>~$7,945/night</td><td>~$9,114/night</td></tr>
+<tr><td>Villa Isabella</td><td>€1,750/night</td><td>€2,100/night</td></tr>
+<tr><td>Full Estate</td><td>€44,100/week</td><td>€63,000/week</td></tr>
+</table></div>
+</div>
+<div id="month-aug" class="month-content">
+<span class="badge badge-red">Super Peak</span><span class="badge badge-purple">XLSIOR Festival Aug 19–26</span>
+<div class="table-wrap"><table>
+<tr><th>Property</th><th>Rate (1–16)</th><th>Rate (17–31)</th></tr>
+<tr><td>Villa Delilah</td><td>€2,100/night</td><td>€1,700/night</td></tr>
+<tr><td>Villa Carina</td><td>€3,300/night</td><td>€2,200/night</td></tr>
+<tr><td>Villa Isabella</td><td>€1,850–€2,100/night</td><td>€1,850–€2,100/night</td></tr>
+<tr><td>Full Estate</td><td>€50,400/week</td><td>€44,100/week</td></tr>
+</table></div>
+</div>
+<div id="month-sep" class="month-content">
+<span class="badge badge-blue">Shoulder / Closing Parties</span><span class="badge badge-green">3–5 Night Min after Sept 10</span>
+<div class="table-wrap"><table>
+<tr><th>Property</th><th>Rate (1–15)</th><th>Rate (16–30)</th></tr>
+<tr><td>Villa Delilah</td><td>€1,400–€1,700/night</td><td>€1,100/night</td></tr>
+<tr><td>Villa Carina</td><td>€1,800–€2,200/night</td><td>€1,800–€2,200/night</td></tr>
+<tr><td>Villa Isabella</td><td>€1,200–€1,500/night</td><td>€1,200–€1,500/night</td></tr>
+<tr><td>Full Estate</td><td>€34,020/week</td><td>€28,980/week</td></tr>
+</table></div>
+</div>
+<div id="month-oct" class="month-content">
+<span class="badge badge-green">Closing Season</span><span class="badge badge-blue">2–3 Night Minimum</span>
+<div class="table-wrap"><table>
+<tr><th>Property</th><th>Nightly Rate</th><th>Weekly Rate</th></tr>
+<tr><td>Villa Delilah</td><td>€950/night</td><td>€6,650/week</td></tr>
+<tr><td>Villa Carina</td><td>€1,500/night</td><td>€10,500/week</td></tr>
+<tr><td>Villa Isabella</td><td>€800/night</td><td>€5,600/week</td></tr>
+<tr><td>Full Estate</td><td>~€4,140/night</td><td>€28,980/week</td></tr>
+</table></div>
+</div>
+<h2>Key Demand Events</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Aug 15</div><div class="card-subtitle">Assumption Day (Panagia)</div><p>Island at 100% capacity</p></div>
+<div class="card"><div class="card-title">Aug 19–26</div><div class="card-subtitle">XLSIOR Festival</div><p>Highest group booking demand</p></div>
+<div class="card"><div class="card-title">Sept 18–27</div><div class="card-subtitle">Closing Parties</div><p>Cavo Paradiso & Scorpios finales</p></div>
+</div>
+<h2>Booking Terms</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Check-in</div><p>3:00 PM – 4:00 PM (varies by villa)</p></div>
+<div class="card"><div class="card-title">Check-out</div><p>11:00 AM (10:00 AM strictly enforced in July)</p></div>
+<div class="card"><div class="card-title">Climate Resilience Fee</div><p>€15/night/villa, cash upon arrival</p></div>
+<div class="card"><div class="card-title">Deposit</div><p>50% at booking, balance 90 days before arrival</p></div>
+<div class="card"><div class="card-title">Security Deposit (Aug)</div><p>25% of total rental, due 2 weeks prior</p></div>
+<div class="card"><div class="card-title">Events Policy</div><p>Parties, bachelorettes, and weddings explicitly allowed</p></div>
+</div>
+<h2>Minimum Stay Requirements</h2>
+<div class="table-wrap"><table>
+<tr><th>Period</th><th>Minimum Stay</th></tr>
+<tr><td>May (Mid-Season)</td><td>3–5 nights</td></tr>
+<tr><td>June 1–14</td><td>3 nights</td></tr>
+<tr><td>June 14 – Aug 31 (Peak)</td><td>7 nights (Sat-to-Sat)</td></tr>
+<tr><td>Sept 1–10</td><td>5 nights</td></tr>
+<tr><td>Sept 10–30</td><td>3–5 nights</td></tr>
+<tr><td>October</td><td>2–3 nights</td></tr>
+</table></div>
+</div>
+<script>
+// Navigation
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('.section');
+const indicator = document.getElementById('pageIndicator');
+const scrollBtn = document.getElementById('scrollTop');
+const nav = document.querySelector('.nav');
+
+navLinks.forEach((btn, i) => {
+btn.addEventListener('click', () => {
+navLinks.forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+sections.forEach(s => s.classList.remove('active'));
+document.getElementById(btn.dataset.section).classList.add('active');
+indicator.style.width = ((i + 1) / navLinks.length * 100) + '%';
+window.scrollTo({ top: 0, behavior: 'smooth' });
+document.querySelector('.nav-links').classList.remove('open');
+});
+});
+
+// Scroll effects
+window.addEventListener('scroll', () => {
+const y = window.scrollY;
+scrollBtn.classList.toggle('visible', y > 300);
+nav.classList.toggle('scrolled', y > 20);
+});
+
+// Month tabs
+function showMonth(month) {
+document.querySelectorAll('.month-tab').forEach(t => t.classList.remove('active'));
+document.querySelectorAll('.month-content').forEach(c => c.classList.remove('active'));
+document.querySelector(`[data-month="${month}"]`).classList.add('active');
+document.getElementById(`month-${month}`).classList.add('active');
+}
+
+// Keyboard nav
+document.addEventListener('keydown', e => {
+const active = document.querySelector('.nav-link.active');
+const all = [...navLinks];
+const idx = all.indexOf(active);
+if (e.key === 'ArrowRight' && idx < all.length - 1) all[idx + 1].click();
+if (e.key === 'ArrowLeft' && idx > 0) all[idx - 1].click();
+});
+
+// Set initial indicator
+indicator.style.width = (1 / navLinks.length * 100) + '%';
+</script>
+
+<div id="experiences" class="section">
+<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1400&h=300&fit=crop" alt="Luxury yacht on crystal blue water" class="hero-banner">
+<h1>Experience Program</h1>
+<p class="subtitle">Existing estate offerings + new premium experiences we add</p>
+<h2>Existing Estate Experiences (Elevated)</h2>
+<div class="grid grid-3">
+<div class="card">
+<div class="card-title">🧘 Yoga & Wellness</div>
+<div class="tag-row"><span class="badge badge-green">Active Partners</span></div>
+<ul>
+<li>Private & group yoga sessions</li>
+<li>Meditation, sound therapy, massage</li>
+<li>Fitness classes, breathwork</li>
+<li>Full Moon Ceremonies (amphitheatre)</li>
+<li>Multi-day retreat packages</li>
+</ul>
+<p style="margin-top:0.75rem;color:var(--stone-dark)">€80–€3,500</p>
+</div>
+<div class="card">
+<div class="card-title">👨‍🍳 Chef & Cooking</div>
+<div class="tag-row"><span class="badge badge-gold">Pro Kitchen (300 seated)</span></div>
+<ul>
+<li>Private chef service (breakfast/lunch/dinner)</li>
+<li>Greek cooking lessons (groups & private)</li>
+<li>Amphitheatre, helipad, or poolside dining</li>
+<li>Sommelier wine pairings</li>
+<li>Cocktail masterclasses</li>
+</ul>
+<p style="margin-top:0.75rem;color:var(--stone-dark)">€150–€5,000</p>
+</div>
+<div class="card">
+<div class="card-title">⛵ Boat Trips</div>
+<div class="tag-row"><span class="badge badge-blue">4 weeks advance</span></div>
+<ul>
+<li>Delos, Rhinia, Tinos, Naxos, Paros</li>
+<li>Fish/seafood BBQ on beach</li>
+<li>DJs, sea sports, ancient sites</li>
+<li>Private yacht charters</li>
+<li>Delos Sunrise Expedition</li>
+</ul>
+<p style="margin-top:0.75rem;color:var(--stone-dark)">€1,000–€5,000</p>
+</div>
+<div class="card">
+<div class="card-title">🎭 Art & Entertainment</div>
+<div class="tag-row"><span class="badge badge-purple">6 weeks advance for events</span></div>
+<ul>
+<li>Musical performances, concerts</li>
+<li>Fashion shows, DJ-led parties</li>
+<li>"Castle of House" brand events</li>
+<li>Illumina Tribe creative retreats</li>
+<li>Amphitheatre Cinema Night</li>
+</ul>
+<p style="margin-top:0.75rem;color:var(--stone-dark)">€500–€15,000</p>
+</div>
+<div class="card">
+<div class="card-title">💍 Magic Moments</div>
+<div class="tag-row"><span class="badge badge-gold">300 seated / 800 cocktail</span></div>
+<ul>
+<li>Weddings (church + amphitheatre)</li>
+<li>Baptisms, birthdays, celebrations</li>
+<li>Corporate retreats & launches</li>
+<li>Helipad VIP arrivals</li>
+<li>Estate manager full coordination</li>
+</ul>
+<p style="margin-top:0.75rem;color:var(--stone-dark)">€15,000–€150,000</p>
+</div>
+<div class="card">
+<div class="card-title">💻 Remote Working</div>
+<div class="tag-row"><span class="badge badge-blue">Long-stay programs</span></div>
+<ul>
+<li>100 Mbps WiFi, printer, scanner</li>
+<li>Daily breakfast & afternoon snacks</li>
+<li>Daily private maid & yoga</li>
+<li>Personal business assistant</li>
+<li>Community living activities</li>
+</ul>
+<p style="margin-top:0.75rem;color:var(--stone-dark)">€800–€1,200/week</p>
+</div>
+</div>
+<h2>New Signature Experiences (We Add)</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">🚁 Helipad Sunset Dinner</div><p>Private chef for 12 at golden hour. Curated menu, sommelier, live musician.</p><p style="color:var(--stone-dark)">€2,000–€5,000</p></div>
+<div class="card"><div class="card-title">🎬 Amphitheatre Cinema</div><p>Outdoor movie night. Projector, gourmet popcorn, champagne, blankets under stars.</p><p style="color:var(--stone-dark)">€500–€1,500</p></div>
+<div class="card"><div class="card-title">🏛️ Delos Sunrise Expedition</div><p>Private boat at dawn. Exclusive archaeological tour. Champagne breakfast on return.</p><p style="color:var(--stone-dark)">€1,500–€3,000</p></div>
+<div class="card"><div class="card-title">🌕 Full Moon Ceremony</div><p>Yoga, meditation, sound healing on amphitheatre timed to full moons.</p><p style="color:var(--stone-dark)">€150–€300/person</p></div>
+<div class="card"><div class="card-title">🍷 Wine & Cocktail Masterclass</div><p>Sommelier-led Greek wine tasting or mixology at the estate bar.</p><p style="color:var(--stone-dark)">€100–€200/person</p></div>
+<div class="card"><div class="card-title">📸 Professional Photography</div><p>Luxury vacation/event photographer. 2–3 hour session on the estate.</p><p style="color:var(--stone-dark)">€300–€800</p></div>
+</div>
+<h2>Concierge Add-Ons</h2>
+<div class="grid grid-4">
+<div class="card"><div class="card-title">Airport Transfer</div><p style="color:var(--stone-dark)">€80–€150</p></div>
+<div class="card"><div class="card-title">Grocery Pre-stock</div><p style="color:var(--stone-dark)">€100–€300 + cost</p></div>
+<div class="card"><div class="card-title">Welcome Package</div><p style="color:var(--stone-dark)">€150–€500</p></div>
+<div class="card"><div class="card-title">Spa / Massage</div><p style="color:var(--stone-dark)">€120–€250/session</p></div>
+<div class="card"><div class="card-title">Car / ATV Rental</div><p style="color:var(--stone-dark)">Market + 15%</p></div>
+<div class="card"><div class="card-title">Babysitting</div><p style="color:var(--stone-dark)">€25–€40/hour</p></div>
+<div class="card"><div class="card-title">Express Laundry</div><p style="color:var(--stone-dark)">€50–€150</p></div>
+<div class="card"><div class="card-title">Restaurant Reservations</div><p style="color:var(--stone-dark)">Complimentary</p></div>
+</div>
+</div>
+
+<div id="members" class="section">
+<img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1400&h=300&fit=crop" alt="Luxury poolside with champagne" class="hero-banner">
+<h1>Members Club</h1>
+<p class="subtitle">Private, invitation-driven community — no tickets, ever</p>
+<div class="stat-row">
+<div class="stat"><div class="stat-value">€1.05M</div><div class="stat-label">Annual Recurring Revenue</div></div>
+<div class="stat"><div class="stat-value">300</div><div class="stat-label">Max Members</div></div>
+<div class="stat"><div class="stat-value">3</div><div class="stat-label">Tiers</div></div>
+<div class="stat"><div class="stat-value">7x</div><div class="stat-label">vs. Ticket Revenue</div></div>
+</div>
+<h2>Membership Tiers</h2>
+<div class="tier" style="border-color:#6b9e8a">
+<div class="tier-name">◈ Friends of Paradise</div>
+<div class="tier-price">€1,500/year</div>
+<div class="tier-cap">200 members max • Entry tier</div>
+<ul>
+<li>Priority booking (48-hour window before public)</li>
+<li>10% discount on villas + experiences</li>
+<li>2 members-only events per season</li>
+<li>Digital concierge (WhatsApp)</li>
+<li>Welcome drink on every arrival</li>
+<li>Referral bonus: bring a member → 1 free night</li>
+</ul>
+<p style="color:var(--green);margin-top:0.5rem">Revenue: 200 × €1,500 = €300,000/year</p>
+</div>
+<div class="tier" style="border-color:var(--stone-dark)">
+<div class="tier-name">◈◈ Paradise Circle</div>
+<div class="tier-price">€5,000/year</div>
+<div class="tier-cap">75 members max • Core tier</div>
+<ul>
+<li>Everything in Tier 1, plus:</li>
+<li>3 complimentary nights/year (any suite)</li>
+<li>20% discount on all bookings</li>
+<li>ALL members-only events (4–6/season)</li>
+<li>Complimentary airport transfer every visit</li>
+<li>Dedicated personal concierge</li>
+<li>Members directory (opt-in networking)</li>
+</ul>
+<p style="color:var(--stone-dark);margin-top:0.5rem">Revenue: 75 × €5,000 = €375,000/year</p>
+</div>
+<div class="tier" style="border-color:var(--purple)">
+<div class="tier-name">◈◈◈ Inner Circle</div>
+<div class="tier-price">€15,000/year</div>
+<div class="tier-cap">25 members max • Invitation only</div>
+<ul>
+<li>Everything in Tier 2, plus:</li>
+<li>7 complimentary nights/year (any villa)</li>
+<li>30% discount on everything</li>
+<li>Guaranteed 2 weeks/season held for Inner Circle</li>
+<li>Complimentary Helipad Dinner (1x/year)</li>
+<li>Complimentary yacht day (1x/year)</li>
+<li>VIP area at all estate events</li>
+<li>Input on programming (vote on DJs, themes)</li>
+<li>Off-season access (Nov–March)</li>
+</ul>
+<p style="color:var(--purple);margin-top:0.5rem">Revenue: 25 × €15,000 = €375,000/year</p>
+</div>
+<h2>Monetization Streams (No Tickets)</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Membership Fees</div><p>€1.05M/year recurring</p></div>
+<div class="card"><div class="card-title">F&B at Events</div><p>Bottle service €500–€2K/table, bar packages €150–€300/person</p></div>
+<div class="card"><div class="card-title">Brand Sponsorships</div><p>Spirits, fashion, automotive — €50K–€200K/season</p></div>
+<div class="card"><div class="card-title">Curated Collaborations</div><p>Yacht, jet, restaurant commissions (15–20%)</p></div>
+<div class="card"><div class="card-title">Content & Media</div><p>Location fees €5K–€15K/day, influencer residencies</p></div>
+<div class="card"><div class="card-title">Referral Revenue</div><p>Members bring members + wedding/event referrals</p></div>
+</div>
+<h2>Competitive Positioning</h2>
+<div class="table-wrap"><table>
+<tr><th>Competitor</th><th>Model</th><th>Fee</th><th>Our Advantage</th></tr>
+<tr><td>Scorpios (Mykonos)</td><td>Day club / restaurant</td><td>No membership</td><td>Accommodation + privacy + exclusivity</td></tr>
+<tr><td>Soho House</td><td>Global members club</td><td>€2,500–€4,000/year</td><td>Private estate intimacy, not hotel chain</td></tr>
+<tr><td>Core Club (NYC)</td><td>Ultra-elite</td><td>$50,000+/year</td><td>Accessible luxury, not Wall Street exclusive</td></tr>
+<tr><td>Habitas</td><td>Wellness community</td><td>Varies</td><td>Party + wellness duality</td></tr>
+<tr><td>ÀNI Private Resorts</td><td>Luxury villa club</td><td>$1,500–$5,000/night</td><td>Community + events, not just rooms</td></tr>
+</table></div>
+<div class="highlight">
+<h3>Unique Position</h3>
+<p>Private estate + members community + event programming + Mykonos location. Nobody else has a helipad, church, amphitheatre, AND a members club on Mykonos.</p>
+</div>
+<h2>Members Operations</h2>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-title">Booking Priority Windows</div>
+<ul>
+<li>Inner Circle books first (8 weeks out)</li>
+<li>Paradise Circle (6 weeks out)</li>
+<li>Friends of Paradise (4 weeks out)</li>
+<li>Remaining availability → public/OTA at full price</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-title">Members-Only Events Calendar</div>
+<ul>
+<li>Season Opening Party (May)</li>
+<li>Full Moon Gatherings (monthly, June–September)</li>
+<li>Castle of House Nights (2–3 per season)</li>
+<li>Closing Party (late September/early October)</li>
+<li>Off-season pop-ups (London, Dubai, Miami — 1–2/year)</li>
+</ul>
+</div>
+</div>
+<h2>Implementation Timeline</h2>
+<div class="table-wrap"><table>
+<tr><th>Week</th><th>Action</th></tr>
+<tr><td>1–2</td><td>Finalize tier structure and benefits with owner</td></tr>
+<tr><td>2–3</td><td>Legal: draft membership terms, liability, cancellation policy</td></tr>
+<tr><td>3–4</td><td>Build landing page / sign-up flow (or PDF + payment link)</td></tr>
+<tr><td>4–5</td><td>Seed founding members: owner's network, your network, past guests</td></tr>
+<tr><td>5–6</td><td>Announce publicly: Instagram reactivation + "something is coming" teasers</td></tr>
+<tr><td>6–7</td><td>Open founding member enrollment (capped at 50 across all tiers)</td></tr>
+<tr><td>July</td><td>Inaugural members event — the proof of concept</td></tr>
+<tr><td>Aug–Oct</td><td>Continue enrollment, deliver benefits, collect testimonials</td></tr>
+<tr><td>Nov–Dec</td><td>Off-season engagement: pop-up events, early 2027 booking window</td></tr>
+<tr><td>Jan 2027</td><td>Full enrollment open, raise prices to standard (founding rate locked)</td></tr>
+</table></div>
+<h2>July Event as Members Launch</h2>
+<div class="highlight">
+<h3>Founding Members Model</h3>
+<p>First 50 sign-ups get 30% off annual fee (locked for life). Event is "free" for members — their first benefit. Non-members attend by invitation only.</p>
+<div class="table-wrap"><table>
+<tr><th>Revenue Source</th><th>Calculation</th><th>Revenue</th></tr>
+<tr><td>Founding memberships (all tiers)</td><td>50 members at discounted rates</td><td>€136,500</td></tr>
+<tr><td>Bottle service / tables</td><td>15 tables × €1,000</td><td>€15,000</td></tr>
+<tr><td>Bar revenue</td><td>150 guests × €200</td><td>€30,000</td></tr>
+<tr><td>Brand sponsors</td><td>1 headline + 2 secondary</td><td>€15,000–€30,000</td></tr>
+<tr><td>Private dining</td><td>20 covers × €300</td><td>€6,000</td></tr>
+<tr><td><strong>TOTAL</strong></td><td></td><td><strong>€203,000–€217,500</strong></td></tr>
+</table></div>
+</div>
+</div>
+
+<div id="event" class="section">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1400&h=300&fit=crop" alt="Outdoor event with lights at night" class="hero-banner">
+<h1>July 2026 Event</h1>
+<p class="subtitle">Owner's event — your audition to prove management capability</p>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-title">✅ Owner Provides</div>
+<ul>
+<li>Sound system (estate-wide professional + Carina DJ system)</li>
+<li>Bar setup (Villa Carina private bar + event bar)</li>
+<li>Security (Pentagon Group)</li>
+<li>Parking</li>
+<li>Venue (full estate — amphitheatre, helipad, pools, terraces)</li>
+<li>Professional kitchen</li>
+<li>Estate manager</li>
+<li>Accommodation for VIPs/artists</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-title">🔴 You Organize</div>
+<ul>
+<li>Talent & entertainment (DJs, live music, lighting/production)</li>
+<li>Catering / chef (menu design, staff)</li>
+<li>Bar stock + bartenders (confirm with owner)</li>
+<li>Guest management (invites, RSVP, VIP tiers, wristbands)</li>
+<li>Transportation (shuttles from town, 6 km)</li>
+<li>Photographer + videographer (non-negotiable)</li>
+<li>Run of show (hour-by-hour timeline)</li>
+<li>Marketing & promotion</li>
+<li>Post-event cleanup + debrief</li>
+</ul>
+</div>
+</div>
+<h2>Critical Deadlines</h2>
+<div class="table-wrap"><table>
+<tr><th>Deadline</th><th>Action</th><th>Status</th></tr>
+<tr><td>This week</td><td>Confirm event date, type, guest count with owner</td><td>⬜</td></tr>
+<tr><td>ASAP</td><td>Book headline talent (July Mykonos fills fast)</td><td>⬜</td></tr>
+<tr><td>6 weeks before</td><td>All vendors confirmed + deposits paid</td><td>⬜</td></tr>
+<tr><td>4 weeks before</td><td>Guest list finalized / founding members enrolled</td><td>⬜</td></tr>
+<tr><td>4 weeks before</td><td>Boat trips booked (estate policy)</td><td>⬜</td></tr>
+<tr><td>2 weeks before</td><td>All vendor load-in times confirmed</td><td>⬜</td></tr>
+<tr><td>1 week before</td><td>Final walkthrough with owner + estate manager</td><td>⬜</td></tr>
+<tr><td>Day before</td><td>Setup, sound check, lighting check</td><td>⬜</td></tr>
+</table></div>
+<h2>Questions for Owner</h2>
+<div class="grid grid-2">
+<div class="card">
+<ol style="list-style:decimal;padding-left:1.2rem;color:var(--text-dim);font-size:0.85rem">
+<li style="padding:0.3rem 0">What type of event? (Private party, brand, music, celebration?)</li>
+<li style="padding:0.3rem 0">What specific date(s) in July?</li>
+<li style="padding:0.3rem 0">How many guests?</li>
+<li style="padding:0.3rem 0">What's the budget?</li>
+<li style="padding:0.3rem 0">Is the estate blocked from rentals during event?</li>
+<li style="padding:0.3rem 0">Does he have talent in mind?</li>
+<li style="padding:0.3rem 0">Does "sound secured" = estate system only, or hired production?</li>
+</ol>
+</div>
+<div class="card">
+<ol start="8" style="list-style:decimal;padding-left:1.2rem;color:var(--text-dim);font-size:0.85rem">
+<li style="padding:0.3rem 0">Does "bar secured" = physical bar only, or also stock + staff?</li>
+<li style="padding:0.3rem 0">Is Pentagon Group booked for this specific event?</li>
+<li style="padding:0.3rem 0">What's his vision for the vibe?</li>
+<li style="padding:0.3rem 0">Has he done events here before?</li>
+<li style="padding:0.3rem 0">Any noise curfew or neighbor concerns?</li>
+<li style="padding:0.3rem 0">Does he want this documented for marketing?</li>
+<li style="padding:0.3rem 0">One-off or start of a regular series?</li>
+</ol>
+</div>
+</div>
+<h2>Budget Template</h2>
+<div class="table-wrap"><table>
+<tr><th>Category</th><th>Items</th><th>Estimated Cost</th></tr>
+<tr><td>Talent & Entertainment</td><td>Headline DJ/Artist, Supporting DJs (×2–3), Live musicians, Lighting & production, Stage/booth setup</td><td>TBD</td></tr>
+<tr><td>Food & Beverage</td><td>Catering/chef, Bar stock (spirits, wine, champagne), Bar staff, Ice & glassware</td><td>TBD</td></tr>
+<tr><td>Guest Management</td><td>Invitations/ticketing platform, Wristbands/credentials, Guest transportation (shuttles)</td><td>TBD</td></tr>
+<tr><td>Logistics</td><td>Portable restrooms (if 300+), Waste management, Insurance, First aid/medic, Generator fuel</td><td>TBD</td></tr>
+<tr><td>Marketing</td><td>Event branding/design, Photographer, Videographer, Paid social ads</td><td>TBD</td></tr>
+<tr><td>Staffing</td><td>Event coordinator (day-of), Door/check-in staff, Cleanup crew</td><td>TBD</td></tr>
+<tr><td>Contingency (10%)</td><td>—</td><td>TBD</td></tr>
+</table></div>
+<h2>Revenue Potential (If Ticketed)</h2>
+<div class="table-wrap"><table>
+<tr><th>Scenario</th><th>Tickets</th><th>Price</th><th>Gross Revenue</th></tr>
+<tr><td>Intimate (150 guests)</td><td>150</td><td>€100–€200</td><td>€15,000–€30,000</td></tr>
+<tr><td>Medium (300 guests)</td><td>300</td><td>€80–€150</td><td>€24,000–€45,000</td></tr>
+<tr><td>Large (500+ cocktail)</td><td>500</td><td>€60–€120</td><td>€30,000–€60,000</td></tr>
+<tr><td>VIP tables / bottle service</td><td>10–20 tables</td><td>€500–€2,000</td><td>€5,000–€40,000</td></tr>
+</table></div>
+<h2>Run of Show (Template)</h2>
+<div class="table-wrap"><table>
+<tr><th>Time</th><th>Activity</th><th>Location</th></tr>
+<tr><td>10:00 AM</td><td>Vendor load-in begins</td><td>Estate entrance</td></tr>
+<tr><td>2:00 PM</td><td>Sound check + lighting check</td><td>Amphitheatre / Helipad</td></tr>
+<tr><td>4:00 PM</td><td>Staff briefing</td><td>Professional kitchen</td></tr>
+<tr><td>5:00 PM</td><td>VIP pre-event dinner (optional)</td><td>Helipad / Amphitheatre</td></tr>
+<tr><td>7:00 PM</td><td>Doors open — sunset cocktails</td><td>Pool deck / Terraces</td></tr>
+<tr><td>8:00 PM</td><td>Warm-up DJ / live musician</td><td>Pool deck</td></tr>
+<tr><td>9:30 PM</td><td>Dinner service (if seated)</td><td>Amphitheatre</td></tr>
+<tr><td>10:30 PM</td><td>Headline DJ set begins</td><td>Amphitheatre / Helipad</td></tr>
+<tr><td>1:00 AM</td><td>Late-night food stations open</td><td>Professional kitchen</td></tr>
+<tr><td>3:00 AM</td><td>Music winds down (confirm curfew)</td><td>—</td></tr>
+<tr><td>3:30 AM</td><td>Guest departure / shuttle service</td><td>Estate entrance</td></tr>
+<tr><td>Next day</td><td>Cleanup + damage assessment</td><td>Full estate</td></tr>
+</table></div>
+<h2>Post-Event Checklist</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Day After</div><ul><li>Deep clean entire estate</li><li>Damage assessment walkthrough</li><li>Collect all photo/video content</li></ul></div>
+<div class="card"><div class="card-title">Within 3 Days</div><ul><li>Thank-you messages to guests, talent, vendors</li><li>Share highlight reel on social media</li><li>Collect guest testimonials</li></ul></div>
+<div class="card"><div class="card-title">Within 1 Week</div><ul><li>Financial reconciliation (costs vs. revenue)</li><li>Debrief with owner</li><li>Aftermovie edit commissioned</li></ul></div>
+</div>
+<div class="highlight">
+<h3>Strategic Note</h3>
+<p>This event is your audition. Execute flawlessly → management proposal sells itself. Every decision should demonstrate professionalism, luxury standards, revenue thinking, and content capture. If this goes well, it's the strongest possible foundation for the management proposal.</p>
+</div>
+</div>
+
+<div id="financials" class="section">
+<h1>Financial Projections</h1>
+<p class="subtitle">Year 1 revenue models — Conservative / Moderate / Aggressive</p>
+<div class="stat-row">
+<div class="stat"><div class="stat-value">€709K</div><div class="stat-label">Conservative</div></div>
+<div class="stat"><div class="stat-value">€1.18M</div><div class="stat-label">Moderate</div></div>
+<div class="stat"><div class="stat-value">€1.92M</div><div class="stat-label">Aggressive</div></div>
+<div class="stat"><div class="stat-value">€21–40K</div><div class="stat-label">Startup Investment</div></div>
+</div>
+<h2>Revenue Breakdown (Year 1)</h2>
+<div class="table-wrap"><table>
+<tr><th>Revenue Stream</th><th>Conservative</th><th>Moderate</th><th>Aggressive</th></tr>
+<tr><td>Accommodation (villa rentals)</td><td>€375,375</td><td>€519,750</td><td>€701,250</td></tr>
+<tr><td>Experiences & Services</td><td>€93,844</td><td>€155,925</td><td>€245,438</td></tr>
+<tr><td>Weddings & Events</td><td>€240,000</td><td>€500,000</td><td>€975,000</td></tr>
+<tr><td><strong>Total Gross</strong></td><td><strong>€709,219</strong></td><td><strong>€1,175,675</strong></td><td><strong>€1,921,688</strong></td></tr>
+</table></div>
+<h2>Our Revenue (Management Commission)</h2>
+<div class="table-wrap"><table>
+<tr><th>Stream</th><th>Commission</th><th>Conservative</th><th>Moderate</th><th>Aggressive</th></tr>
+<tr><td>Accommodation</td><td>25%</td><td>€93,844</td><td>€129,938</td><td>€175,313</td></tr>
+<tr><td>Experiences</td><td>35%</td><td>€32,845</td><td>€54,574</td><td>€85,903</td></tr>
+<tr><td>Events</td><td>35%</td><td>€84,000</td><td>€175,000</td><td>€341,250</td></tr>
+<tr><td><strong>Our Total</strong></td><td></td><td><strong>€210,689</strong></td><td><strong>€359,511</strong></td><td><strong>€602,466</strong></td></tr>
+</table></div>
+<h2>Members Club Revenue (Additional)</h2>
+<div class="table-wrap"><table>
+<tr><th>Tier</th><th>Members</th><th>Fee</th><th>Annual</th></tr>
+<tr><td>Friends of Paradise</td><td>200</td><td>€1,500</td><td>€300,000</td></tr>
+<tr><td>Paradise Circle</td><td>75</td><td>€5,000</td><td>€375,000</td></tr>
+<tr><td>Inner Circle</td><td>25</td><td>€15,000</td><td>€375,000</td></tr>
+<tr><td><strong>Total Membership</strong></td><td><strong>300</strong></td><td></td><td><strong>€1,050,000</strong></td></tr>
+</table></div>
+<h2>Startup Investment</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Photography + Video</div><p style="color:var(--stone-dark)">€5,000–€8,000</p></div>
+<div class="card"><div class="card-title">Website Redesign</div><p style="color:var(--stone-dark)">€5,000–€10,000</p></div>
+<div class="card"><div class="card-title">Brand Guidelines</div><p style="color:var(--stone-dark)">€1,500–€3,000</p></div>
+<div class="card"><div class="card-title">Tech Stack Setup</div><p style="color:var(--stone-dark)">€2,000–€3,000</p></div>
+<div class="card"><div class="card-title">Marketing (3 months)</div><p style="color:var(--stone-dark)">€6,000–€12,000</p></div>
+<div class="card"><div class="card-title">Legal</div><p style="color:var(--stone-dark)">€2,000–€4,000</p></div>
+</div>
+<div class="highlight">
+<h3>Payback Period: 2–4 months of operation</h3>
+<p>Total startup investment of €21,500–€40,000 is recovered within the first 2–4 months under the conservative scenario.</p>
+</div>
+<h2>Deal Structure Options</h2>
+<div class="grid grid-3">
+<div class="card" style="border-color:var(--green)">
+<div class="card-title">Option A: Revenue Share ✓</div>
+<div class="card-subtitle">Recommended</div>
+<ul>
+<li>25% commission on rental revenue</li>
+<li>35% commission on experiences/events</li>
+<li>Owner retains property + insurance</li>
+<li>We handle everything operational</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-title">Option B: Fixed + Bonus</div>
+<div class="card-subtitle">Lower risk</div>
+<ul>
+<li>€3,000–€5,000/month retainer (season)</li>
+<li>€1,500/month (off-season)</li>
+<li>10% bonus on revenue above targets</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-title">Option C: Lease & Operate</div>
+<div class="card-subtitle">Highest upside</div>
+<ul>
+<li>Fixed annual lease to owner</li>
+<li>We operate independently</li>
+<li>Keep all revenue above lease cost</li>
+</ul>
+</div>
+</div>
+<h2>Implementation Timeline</h2>
+<div class="table-wrap"><table>
+<tr><th>Week</th><th>Phase</th><th>Key Milestones</th></tr>
+<tr><td>1–2</td><td>Phase 0: Deal</td><td>Owner meeting, proposal presentation, term sheet negotiation</td></tr>
+<tr><td>1–2</td><td>Phase 1: Foundation</td><td>Instagram reactivated, website fixes, listing audit started</td></tr>
+<tr><td>2–4</td><td>Phase 1: Quick Wins</td><td>Dynamic pricing live, review campaign launched, photography commissioned</td></tr>
+<tr><td>4–8</td><td>Phase 2: Brand</td><td>Brand guidelines complete, website redesign underway, content calendar active</td></tr>
+<tr><td>4–8</td><td>Phase 3: Experiences</td><td>Experience menu designed, vendor partnerships signed, pricing published</td></tr>
+<tr><td>6–12</td><td>Phase 4: Operations</td><td>PMS live, SOPs documented, staff trained, CRM operational</td></tr>
+<tr><td>8–12</td><td>Phase 5: Growth</td><td>Paid ads running, influencer stays booked, PR pitches sent, SEO building</td></tr>
+<tr><td>12+</td><td>Scale</td><td>Direct booking 30%+, wedding pipeline full, 50+ reviews, rate optimization</td></tr>
+</table></div>
+<h2>Risks & Mitigations</h2>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-title">High Impact Risks</div>
+<div class="table-wrap"><table>
+<tr><th>Risk</th><th>Likelihood</th><th>Mitigation</th></tr>
+<tr><td>Owner rejects proposal</td><td>Medium</td><td>Multiple deal structures; demonstrate clear ROI</td></tr>
+<tr><td>Slow review accumulation</td><td>Medium</td><td>Aggressive post-stay follow-up; hosted stays for creators</td></tr>
+<tr><td>Staff quality issues</td><td>Medium</td><td>Thorough vetting, training program, performance reviews</td></tr>
+<tr><td>Regulatory changes (Greek rental laws)</td><td>Low</td><td>Legal counsel; stay compliant with climate resilience tax</td></tr>
+</table></div>
+</div>
+<div class="card">
+<div class="card-title">Medium Impact Risks</div>
+<div class="table-wrap"><table>
+<tr><th>Risk</th><th>Likelihood</th><th>Mitigation</th></tr>
+<tr><td>Competition undercuts pricing</td><td>Medium</td><td>Differentiate on experience, not price</td></tr>
+<tr><td>OTA algorithm changes</td><td>Medium</td><td>Diversify channels; build direct booking capability</td></tr>
+<tr><td>Seasonal weather disruption</td><td>Low</td><td>Flexible cancellation; indoor alternatives</td></tr>
+<tr><td>Capital improvement needs</td><td>Medium</td><td>Property inspection before signing; negotiate owner responsibility</td></tr>
+</table></div>
+</div>
+</div>
+<h2>Technology Stack</h2>
+<div class="grid grid-4">
+<div class="card"><div class="card-title">PMS</div><div class="card-subtitle">Guesty / Hostaway</div><p style="color:var(--stone-dark)">€200–€500/mo</p></div>
+<div class="card"><div class="card-title">Dynamic Pricing</div><div class="card-subtitle">PriceLabs / Beyond</div><p style="color:var(--stone-dark)">€50–€100/mo</p></div>
+<div class="card"><div class="card-title">CRM</div><div class="card-subtitle">HubSpot / Salesforce</div><p style="color:var(--stone-dark)">€0–€200/mo</p></div>
+<div class="card"><div class="card-title">Email Marketing</div><div class="card-subtitle">Mailchimp / Brevo</div><p style="color:var(--stone-dark)">€0–€50/mo</p></div>
+</div>
+</div>
+
+<div id="marketing" class="section">
+<img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1400&h=300&fit=crop" alt="Mykonos white buildings and blue sea" class="hero-banner">
+<h1>Marketing & Growth</h1>
+<p class="subtitle">Brand repositioning, digital overhaul, and growth strategy</p>
+<h2>Immediate Fixes (Week 1)</h2>
+<div class="grid grid-4">
+<div class="card"><span class="badge badge-red">Critical</span><div class="card-title">Reactivate Instagram</div><p>3–4x/week minimum. Dormant = dead.</p></div>
+<div class="card"><span class="badge badge-red">Critical</span><div class="card-title">Fix Website</div><p>Update copyright, fix broken shortcode, remove duplicates.</p></div>
+<div class="card"><span class="badge badge-red">Critical</span><div class="card-title">Standardize Listings</div><p>Consistent specs across all OTA platforms.</p></div>
+<div class="card"><span class="badge badge-gold">High</span><div class="card-title">Google Business</div><p>Claim profile. Start collecting reviews.</p></div>
+</div>
+<h2>Brand Repositioning</h2>
+<div class="highlight">
+<h3>Current Problem</h3>
+<p>Brand tries to be both "serene luxury retreat" AND "party destination" simultaneously. This confuses the market and caps pricing.</p>
+<h3>New Positioning</h3>
+<p style="color:var(--stone-dark);font-size:1.1rem;font-style:italic;font-family:var(--font-display)">"A versatile private estate for extraordinary moments"</p>
+<p>Lead with: serenity, exclusivity, Cycladic elegance, panoramic views, privacy. Secondary discovery: event capability, entertainment infrastructure.</p>
+</div>
+<h2>Content Strategy</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Pillar 1</div><p>Villa Showcases — walkthroughs, room reveals, pool shots</p></div>
+<div class="card"><div class="card-title">Pillar 2</div><p>Mykonos Lifestyle — beach clubs, dining, sunsets, culture</p></div>
+<div class="card"><div class="card-title">Pillar 3</div><p>Guest Experiences — chef dinners, yacht days, wellness</p></div>
+<div class="card"><div class="card-title">Pillar 4</div><p>Behind the Scenes — staff, preparation, estate life</p></div>
+<div class="card"><div class="card-title">Pillar 5</div><p>Destination Guide — local tips, hidden gems, seasonal highlights</p></div>
+<div class="card"><div class="card-title">Cadence</div><p>IG: 4–5x/week • Stories: daily • TikTok: 2–3x/week • Email: 2x/month</p></div>
+</div>
+<h2>KPIs</h2>
+<div class="table-wrap"><table>
+<tr><th>Metric</th><th>Current</th><th>6-Month Target</th><th>12-Month Target</th></tr>
+<tr><td>Public reviews</td><td>3</td><td>25+</td><td>50+</td></tr>
+<tr><td>Average review score</td><td>7.4/10</td><td>4.7/5.0</td><td>4.8+/5.0</td></tr>
+<tr><td>Instagram followers</td><td>~1K–5K</td><td>10,000+</td><td>25,000+</td></tr>
+<tr><td>Direct booking %</td><td>~5%</td><td>15%</td><td>30%</td></tr>
+<tr><td>Average occupancy</td><td>Unknown</td><td>65%</td><td>75%</td></tr>
+<tr><td>Experience attach rate</td><td>0%</td><td>25%</td><td>40%</td></tr>
+<tr><td>Weddings booked</td><td>0</td><td>6</td><td>10–12</td></tr>
+</table></div>
+<h2>Paid Advertising (Month 3+)</h2>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-title">Instagram / Facebook Ads</div>
+<div class="card-subtitle">€1,500–€3,000/month</div>
+<p>Luxury travelers in UK, US, UAE, Germany, France. Ages 28–55. Interests: luxury travel, Mykonos, Greek islands.</p>
+</div>
+<div class="card">
+<div class="card-title">Google Ads</div>
+<div class="card-subtitle">€1,000–€2,000/month</div>
+<p>Keywords: "Mykonos luxury villa," "Mykonos wedding venue," "Mykonos private estate," "villa with helipad."</p>
+</div>
+</div>
+<h2>Influencer Program</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Micro (10K–50K)</div><p>Complimentary 3-night stay (shoulder). 5 posts + 10 stories + 1 Reel. 3–4 per season.</p></div>
+<div class="card"><div class="card-title">Mid-tier (50K–200K)</div><p>Stay + €1K–€2K. 3 posts + 15 stories + 2 Reels. 2 per season.</p></div>
+<div class="card"><div class="card-title">Macro (200K+)</div><p>Negotiate per deal. Full content package. 1 per season (aspirational).</p></div>
+</div>
+<h2>SEO Strategy</h2>
+<div class="grid grid-2">
+<div class="card">
+<div class="card-title">Target Keywords</div>
+<ul>
+<li>"Mykonos luxury villa rental"</li>
+<li>"Mykonos wedding venue"</li>
+<li>"private estate Mykonos"</li>
+<li>"Mykonos villa with helipad"</li>
+<li>"Mykonos corporate retreat"</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-title">Technical SEO</div>
+<ul>
+<li>Schema markup for vacation rentals, reviews, events</li>
+<li>Multilingual pages (EN, FR, DE, AR)</li>
+<li>Monthly blog: Mykonos guides, wedding planning, experiences</li>
+<li>Fix broken shortcodes and duplicate pages</li>
+<li>Mobile optimization + Core Web Vitals</li>
+</ul>
+</div>
+</div>
+<h2>PR & Partnerships</h2>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Press Targets</div><p>Condé Nast Traveller, Travel + Leisure, AFAR, Monocle, Martha Stewart Weddings</p></div>
+<div class="card"><div class="card-title">Local Partnerships</div><p>Scorpios, Cavo Paradiso, Nammos — cross-referral agreements</p></div>
+<div class="card"><div class="card-title">A&K Relationship</div><p>Deepen partnership, provide updated content, request featured placement</p></div>
+</div>
+</div>
+
+</main>
+<footer style="text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);color:var(--stone-light);font-size:0.75rem;letter-spacing:0.5px">
+<p style="font-family:var(--font-display);color:var(--stone-dark);margin-bottom:0.5rem;font-size:1.1rem">◈ PARADISE ESTATE MYKONOS</p>
+<p>Project Portal — Prepared by Enzo Garoche • Last updated: May 2026</p>
+<p style="margin-top:0.5rem">Pirgi, South-Eastern Mykonos • 10,000m² Private Estate</p>
+</footer>
+</body>
+</html>
