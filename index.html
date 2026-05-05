@@ -238,6 +238,7 @@ else{document.getElementById('authError').style.display='block';document.getElem
 </div>
 </div>
 <h2>Distribution Partners</h2>
+<div id="trinity-status" style="margin-bottom:1.5rem"></div>
 <div class="grid grid-4">
 <div class="card"><div class="card-title">Airbnb</div><div class="card-subtitle">6 listings • No badges</div></div>
 <div class="card"><div class="card-title">Abercrombie & Kent</div><div class="card-subtitle">Full estate • Premium</div></div>
@@ -251,13 +252,13 @@ else{document.getElementById('authError').style.display='block';document.getElem
 </div>
 
 <div id="properties" class="section">
-<img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1400&h=350&fit=crop&crop=center" alt="Luxury Greek villa with infinity pool" class="hero-banner">
+<img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1400&h=350&fit=crop&crop=center" alt="Luxury Greek villa with infinity pool" class="hero-banner" loading="lazy">
 <h1>Property Inventory</h1>
 <p class="subtitle">3 Villas + 6 Suites on Main Estate • 1 Off-Site Villa (Casa di Luna)</p>
 <h2>Main Villas</h2>
 <div class="grid grid-3">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=250&fit=crop" alt="Villa Delilah" class="img-card">
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=250&fit=crop" alt="Villa Delilah" class="img-card" loading="lazy">
 <div class="card-title">Villa Delilah</div>
 <div class="card-subtitle">Main Estate — Pirgi</div>
 <div class="tag-row"><span class="badge badge-gold">5 Bedrooms</span><span class="badge badge-blue">10 Guests</span><span class="badge badge-green">130m² Pool</span></div>
@@ -268,7 +269,7 @@ else{document.getElementById('authError').style.display='block';document.getElem
 <p>ID: 1033158695874491933 • Rating: 4.55 (11 reviews)</p>
 </div>
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=250&fit=crop" alt="Villa Carina" class="img-card">
+<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=250&fit=crop" alt="Villa Carina" class="img-card" loading="lazy">
 <div class="card-title">Villa Carina</div>
 <div class="card-subtitle">Main Estate — Pirgi</div>
 <div class="tag-row"><span class="badge badge-gold">6+ Bedrooms</span><span class="badge badge-blue">12–16 Guests</span><span class="badge badge-green">110m² Heated Pool</span></div>
@@ -279,7 +280,7 @@ else{document.getElementById('authError').style.display='block';document.getElem
 <p>ID: 1033187126973492383</p>
 </div>
 <div class="card">
-<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=250&fit=crop" alt="Villa Isabella" class="img-card">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=250&fit=crop" alt="Villa Isabella" class="img-card" loading="lazy">
 <div class="card-title">Villa Isabella</div>
 <div class="card-subtitle">Main Estate — Pirgi</div>
 <div class="tag-row"><span class="badge badge-gold">4 Bedrooms</span><span class="badge badge-blue">8–9 Guests</span><span class="badge badge-purple">Privacy-Focused</span></div>
@@ -304,7 +305,7 @@ else{document.getElementById('authError').style.display='block';document.getElem
 <h2>Off-Site Property</h2>
 <div class="grid grid-2">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=250&fit=crop" alt="Casa di Luna villa" class="img-card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=250&fit=crop" alt="Casa di Luna villa" class="img-card" loading="lazy">
 <div class="card-title">Villa Casa di Luna</div>
 <div class="card-subtitle">Kalafatis, SE Mykonos (separate location)</div>
 <div class="tag-row"><span class="badge badge-gold">6 Bedrooms</span><span class="badge badge-blue">14 Guests</span><span class="badge badge-green">Infinity Pool</span><span class="badge badge-purple">Organic Garden</span></div>
@@ -323,7 +324,7 @@ else{document.getElementById('authError').style.display='block';document.getElem
 </div>
 </div>
 <div id="calendar" class="section">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400&h=300&fit=crop&crop=bottom" alt="Aegean Sea sunset" class="hero-banner">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400&h=300&fit=crop&crop=bottom" alt="Aegean Sea sunset" class="hero-banner" loading="lazy">
 <h1>Seasonal Calendar 2026</h1>
 <p class="subtitle">May – October • Full pricing and availability</p>
 <div style="margin-bottom:1.5rem">
@@ -421,7 +422,16 @@ else{document.getElementById('authError').style.display='block';document.getElem
 </table></div>
 </div>
 <script>
-// Navigation
+// ═══════════════════════════════════════════════════════════════
+// PARADISE ESTATE PORTAL — Production Runtime
+// Trinity API Integration • Lazy Loading • Offline Resilience
+// ═══════════════════════════════════════════════════════════════
+
+const TRINITY_API = 'https://trinity-consortium.com/api/health';
+const CACHE_KEY = 'paradise-trinity-cache';
+const CACHE_TTL = 5 * 60 * 1000; // 5 min
+
+// ── Navigation ──────────────────────────────────────────────
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('.section');
 const indicator = document.getElementById('pageIndicator');
@@ -440,14 +450,14 @@ document.querySelector('.nav-links').classList.remove('open');
 });
 });
 
-// Scroll effects
+// ── Scroll Effects ──────────────────────────────────────────
 window.addEventListener('scroll', () => {
 const y = window.scrollY;
 scrollBtn.classList.toggle('visible', y > 300);
 nav.classList.toggle('scrolled', y > 20);
-});
+}, { passive: true });
 
-// Month tabs
+// ── Month Tabs ──────────────────────────────────────────────
 function showMonth(month) {
 document.querySelectorAll('.month-tab').forEach(t => t.classList.remove('active'));
 document.querySelectorAll('.month-content').forEach(c => c.classList.remove('active'));
@@ -455,7 +465,7 @@ document.querySelector(`[data-month="${month}"]`).classList.add('active');
 document.getElementById(`month-${month}`).classList.add('active');
 }
 
-// Keyboard nav
+// ── Keyboard Navigation ─────────────────────────────────────
 document.addEventListener('keydown', e => {
 const active = document.querySelector('.nav-link.active');
 const all = [...navLinks];
@@ -466,10 +476,95 @@ if (e.key === 'ArrowLeft' && idx > 0) all[idx - 1].click();
 
 // Set initial indicator
 indicator.style.width = (1 / navLinks.length * 100) + '%';
+
+// ── Lazy Loading Images ─────────────────────────────────────
+if ('IntersectionObserver' in window) {
+const imgObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const img = entry.target;
+if (img.dataset.src) {
+img.src = img.dataset.src;
+img.removeAttribute('data-src');
+}
+imgObserver.unobserve(img);
+}
+});
+}, { rootMargin: '200px' });
+document.querySelectorAll('img[data-src]').forEach(img => imgObserver.observe(img));
+}
+
+// ── Trinity API Integration ─────────────────────────────────
+async function fetchTrinityStatus() {
+const el = document.getElementById('trinity-status');
+if (!el) return;
+
+// Check cache first
+try {
+const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+if (cached && Date.now() - cached.ts < CACHE_TTL) {
+renderTrinityStatus(el, cached.data);
+return;
+}
+} catch(e) {}
+
+try {
+const controller = new AbortController();
+const timeout = setTimeout(() => controller.abort(), 8000);
+const res = await fetch(TRINITY_API, { signal: controller.signal, mode: 'cors' });
+clearTimeout(timeout);
+if (!res.ok) throw new Error(`HTTP ${res.status}`);
+const data = await res.json();
+localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+renderTrinityStatus(el, data);
+} catch (err) {
+el.innerHTML = `<div class="card" style="border-color:var(--border)">
+<div class="card-title">◈ Trinity Platform</div>
+<div class="card-subtitle">Status unavailable — operating independently</div>
+<p style="font-size:0.78rem;color:var(--stone-light)">Portal functions fully offline. Trinity sync resumes when connected.</p>
+</div>`;
+}
+}
+
+function renderTrinityStatus(el, data) {
+const status = data.status === 'ok' ? '● Online' : '○ Degraded';
+const color = data.status === 'ok' ? 'var(--green)' : 'var(--red)';
+el.innerHTML = `<div class="card" style="border-left:3px solid ${color}">
+<div class="card-title" style="display:flex;align-items:center;gap:0.5rem">
+<span style="color:${color};font-size:0.7rem">◈</span> Trinity Platform
+<span style="font-size:0.68rem;color:${color};font-weight:600">${status}</span>
+</div>
+<div class="card-subtitle">v${data.version || '—'} • ${new Date(data.timestamp || Date.now()).toLocaleString()}</div>
+<p style="font-size:0.78rem">Infrastructure backbone powering Paradise Estate operations.</p>
+</div>`;
+}
+
+// ── Service Worker Registration (Offline Resilience) ────────
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('/paradise-estate-portal/sw.js').catch(() => {});
+});
+}
+
+// ── Init ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+fetchTrinityStatus();
+// Prefetch next section images on idle
+if ('requestIdleCallback' in window) {
+requestIdleCallback(() => {
+document.querySelectorAll('img[data-src]').forEach(img => {
+const link = document.createElement('link');
+link.rel = 'prefetch';
+link.href = img.dataset.src;
+document.head.appendChild(link);
+});
+});
+}
+});
 </script>
 
 <div id="experiences" class="section">
-<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1400&h=300&fit=crop" alt="Luxury yacht on crystal blue water" class="hero-banner">
+<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1400&h=300&fit=crop" alt="Luxury yacht on crystal blue water" class="hero-banner" loading="lazy">
 <h1>Experience Program</h1>
 <p class="subtitle">Existing estate offerings + new premium experiences we add</p>
 <h2>Existing Estate Experiences (Elevated)</h2>
@@ -570,7 +665,7 @@ indicator.style.width = (1 / navLinks.length * 100) + '%';
 </div>
 
 <div id="members" class="section">
-<img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1400&h=300&fit=crop" alt="Luxury poolside with champagne" class="hero-banner">
+<img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1400&h=300&fit=crop" alt="Luxury poolside with champagne" class="hero-banner" loading="lazy">
 <h1>Members Club</h1>
 <p class="subtitle">Private, invitation-driven community — no tickets, ever</p>
 <div class="stat-row">
@@ -701,7 +796,7 @@ indicator.style.width = (1 / navLinks.length * 100) + '%';
 </div>
 
 <div id="event" class="section">
-<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1400&h=300&fit=crop" alt="Outdoor event with lights at night" class="hero-banner">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1400&h=300&fit=crop" alt="Outdoor event with lights at night" class="hero-banner" loading="lazy">
 <h1>July 2026 Event</h1>
 <p class="subtitle">Owner's event — your audition to prove management capability</p>
 <div class="grid grid-2">
@@ -939,7 +1034,7 @@ indicator.style.width = (1 / navLinks.length * 100) + '%';
 </div>
 
 <div id="marketing" class="section">
-<img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1400&h=300&fit=crop" alt="Mykonos white buildings and blue sea" class="hero-banner">
+<img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1400&h=300&fit=crop" alt="Mykonos white buildings and blue sea" class="hero-banner" loading="lazy">
 <h1>Marketing & Growth</h1>
 <p class="subtitle">Brand repositioning, digital overhaul, and growth strategy</p>
 <h2>Immediate Fixes (Week 1)</h2>
