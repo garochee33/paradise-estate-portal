@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "name": "Paradise Estate Mykonos",
+    "version": "1.0.0",
+    "created": "2026-05-05",
+    "updated": "2026-05-05"
+  },
+  "properties": {
+    "villa_delilah": {"name":"Villa Delilah","type":"villa","location":"Main Estate - Pirgi","bedrooms":5,"guests":10,"pool_sqm":130,"features":["wedding-ready","master jacuzzi","360° views","outdoor sound"],"airbnb_id":"1033158695874491933","rating":4.55,"reviews":11},
+    "villa_carina": {"name":"Villa Carina","type":"villa","location":"Main Estate - Pirgi","bedrooms":6,"guests":16,"pool_sqm":110,"features":["heated pool","DJ sound system","private bar","entertainment terrace"],"airbnb_id":"1033187126973492383","suites":["the_caretaker","dungeon_dj"]},
+    "villa_isabella": {"name":"Villa Isabella","type":"villa","location":"Main Estate - Pirgi","bedrooms":4,"guests":9,"features":["privacy-focused","secluded gardens","private pool"],"suites":["marijane","magdaline","mayia","elixir"]},
+    "casa_di_luna": {"name":"Villa Casa di Luna","type":"villa","location":"Kalafatis","bedrooms":6,"guests":14,"sqm":385,"features":["infinity pool","organic garden","olive grove","600m to beach"],"airbnb_id":"1020280974315097613"},
+    "the_rock_house": {"name":"The Rock House","type":"suite","wing":"Carina","guests":4,"features":["cave aesthetic","natural stone"]},
+    "cinderella": {"name":"Cinderella Suite","type":"suite","wing":"Delilah","guests":2,"features":["private balcony","sea views"]},
+    "dungeon_dj": {"name":"Dungeon DJ","type":"suite","wing":"Carina","guests":2,"features":["soundproofed"]},
+    "the_caretaker": {"name":"The Caretaker","type":"suite","wing":"Carina","guests":4},
+    "marijane": {"name":"Marijane","type":"suite","wing":"Isabella","guests":4,"airbnb_id":"1033233201802021404"},
+    "magdaline": {"name":"Magdaline","type":"suite","wing":"Isabella","guests":4,"airbnb_id":"1033238485113236388"},
+    "mayia": {"name":"Mayia","type":"suite","wing":"Isabella","guests":4,"airbnb_id":"1033243727516118622"},
+    "elixir": {"name":"Elixir","type":"suite","wing":"Isabella","guests":4}
+  },
+  "pricing_2026": {
+    "full_estate_weekly": {"may":"25200","jun_early":"35280","jun_late":"44100","jul_early":"44100","jul_late":"63000","aug_early":"50400","aug_late":"44100","sep_early":"34020","sep_late":"28980"},
+    "villa_delilah_nightly": {"may":"1000-1466","jun":"1250-1400","jul":"1800-2100","aug":"1700-2100","sep":"1100-1700","oct":"950"},
+    "villa_carina_nightly": {"may":"1600-2571","jun":"1900-2150","jul":"7945-9114","aug":"2200-3300","sep":"1800-2200","oct":"1500"},
+    "villa_isabella_nightly": {"may":"1375-1563","jun":"1560-1750","jul":"1750-2100","aug":"1850-2100","sep":"1200-1500","oct":"800"}
+  },
+  "members_club": {
+    "tiers": {
+      "friends": {"name":"Friends of Paradise","fee":1500,"cap":200,"discount_pct":10,"free_nights":0,"events_access":"2/season"},
+      "circle": {"name":"Paradise Circle","fee":5000,"cap":75,"discount_pct":20,"free_nights":3,"events_access":"all"},
+      "inner": {"name":"Inner Circle","fee":15000,"cap":25,"discount_pct":30,"free_nights":7,"events_access":"all+vip","invite_only":true}
+    },
+    "revenue_target": 1050000,
+    "founding_discount_pct": 30
+  },
+  "events": {
+    "july_2026": {"status":"planning","type":"tbd","owner_provides":["sound","bar","security","parking","venue","kitchen","estate_manager","accommodation"],"we_organize":["talent","catering","bar_staff","guest_management","transport","photographer","videographer","marketing"]},
+    "recurring": ["season_opening_may","full_moon_monthly","castle_of_house","closing_party_sep"]
+  },
+  "experiences": {
+    "existing": ["yoga_wellness","chef_cooking","boat_trips","art_entertainment","magic_moments","staff_services","remote_working"],
+    "new": ["helipad_dinner","amphitheatre_cinema","delos_sunrise","full_moon_ceremony","wine_masterclass","farm_to_table","water_sports","photography","sunset_dj","day_in_mykonos","airport_transfer","grocery_prestock","welcome_package","spa_massage","babysitting","car_rental","express_laundry","restaurant_reservations","horseback_riding","art_residency"]
+  },
+  "partners": {
+    "security": {"name":"Pentagon Group","url":"pentagongroup.gr"},
+    "yoga": [{"name":"@missmonkeymind"},{"name":"@theyogaboheme"},{"name":"Shri Gaia Institute","email":"shrigaiainstitute@gmail.com"}],
+    "creative": {"name":"Illumina Tribe","url":"illumina.io"},
+    "events": [{"name":"@legendsmykonos"},{"name":"@radio_house_myk","role":"lights/music production"},{"name":"@first_son_bar","role":"bar/drinks"}],
+    "distribution": ["airbnb","vrbo","booking_com","abercrombie_kent","villa_collection","dream_properties_greece","orbitz","tripadvisor","advanza","kinglike_concierge"]
+  },
+  "contacts": {
+    "phone": "+30 698 418 8615",
+    "phone_villa": "+30 693 678 0434",
+    "email": "info@paradiseestatemykonos.com",
+    "instagram": "@paradise_estate_mykonos",
+    "website": "https://paradiseestatemykonos.com"
+  },
+  "kpis": {
+    "reviews_current": 3,
+    "reviews_target_6mo": 25,
+    "reviews_target_12mo": 50,
+    "instagram_followers_est": "1000-5000",
+    "direct_booking_pct_current": 5,
+    "direct_booking_pct_target": 30
+  }
+}
