@@ -1,7 +1,7 @@
 # Paradise Estate Mykonos — Portal Build Session Log
 
-**Date:** 2026-05-05  
-**Session:** Full portal build, UI/UX upgrade, deployment  
+**Date:** 2026-05-05 → 2026-05-06  
+**Session:** Full portal build, UI/UX upgrade, deployment, hardening  
 **Status:** ✅ COMPLETE — LIVE  
 **URL:** https://garochee33.github.io/paradise-estate-portal/  
 **Repo:** https://github.com/garochee33/paradise-estate-portal  
@@ -23,6 +23,11 @@ A production-grade, single-page project portal for Paradise Estate Mykonos — c
 | 3 | `5b5cf04` | Production overhaul: Trinity API, lazy loading, offline resilience |
 | 4 | `1c12759` | **v2: Pro UI/UX rebuild** — Exaggerated Minimalism, Cormorant+Montserrat, IntersectionObserver animations, device-adaptive, Trinity API wired |
 | 5 | `e517a67` | Trigger Pages deploy (legacy build mode) |
+| 6 | `db5dd81` | Add session log documentation |
+| 7 | `0ed61dd` | Fix: rename db JSON to avoid agent config detection |
+| 8 | `d930036` | Fix: remove embedded deploy submodule causing Pages build failure |
+| 9 | `6245ced` | Replace all stock images with real Paradise Estate Airbnb photos |
+| 10 | `c3ce668` | UI-UX-PRO-MAX upgrade: Cinzel+Josefin Sans, spring animations, micro-interactions |
 
 ---
 
@@ -33,7 +38,7 @@ A production-grade, single-page project portal for Paradise Estate Mykonos — c
 | `index.html` | 42 KB | **Main portal** — production SPA, deployed to GitHub Pages |
 | `portal.html` | 42 KB | Local copy (identical to index.html) |
 | `sw.js` | 720 B | Service worker — offline caching (network-first strategy) |
-| `db/paradise-estate.json` | 5.1 KB | Property data (structured JSON) |
+| `db/property-data.json` | 5.1 KB | Property data (structured JSON) |
 | `operations/JULY_2026_EVENT_PLAN.md` | 22 KB | Full July 2026 event planning document |
 | `proposal/PARADISE_ESTATE_MASTER_PLAN.md` | 25 KB | 5-phase management proposal |
 | `proposal/MEMBERS_CLUB_MONETIZATION_STRATEGY.md` | 13 KB | Members club tiers & monetization |
