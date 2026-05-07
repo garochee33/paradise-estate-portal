@@ -75,24 +75,119 @@
       {"name": "Airport VIP Transfer", "description": "Private car from JMK (7 min to estate)", "price": "€80–€150", "provider": "Paradise Estate concierge"},
       {"name": "Water Taxi", "description": "All-Day Pass €20. 7 beaches. 10AM–6PM.", "notes": "Cash only. Best way to navigate south coast."},
       {"name": "Car/ATV Rental", "description": "Delivered to estate", "price": "Market + 15%", "notes": "Essential for Casa di Luna guests. Book early in peak."},
-      {"name": "Helicopter Transfer", "description": "Athens–Mykonos or island hopping", "price": "€3,000–€8,000", "notes": "Lands directly on estate helipad."}
+      {"name": "Helicopter Transfer", "description": "Athens–Mykonos or island hopping", "price": "€3,000–€8,000", "notes": "Lands directly on estate helipad."},
+      {"name": "Private Driver (Full Day)", "description": "Dedicated driver + luxury vehicle", "price": "€400–€800/day", "notes": "Essential for groups. Knows every back road."},
+      {"name": "Speedboat Transfer", "description": "Port to estate dock or beach hopping", "price": "€300–€600", "notes": "Fastest way from port. Avoids traffic entirely."},
+      {"name": "Private Jet Coordination", "description": "Athens/Europe to JMK", "price": "On request", "notes": "Coordinate with FBO. Helipad pickup on landing."}
     ],
     "yacht": [
-      {"name": "Half-Day Charter", "description": "4-5 hours. Delos, Rhinia, swimming.", "price": "€1,000–€2,500", "notes": "Book 4 weeks ahead (estate policy)."},
-      {"name": "Full-Day Charter", "description": "8-10 hours. Multi-island. Chef on board.", "price": "€2,000–€5,000"},
-      {"name": "Sunset Cruise", "description": "3 hours. DJ, open bar, swimming.", "price": "€800–€1,500"}
+      {"name": "Half-Day Charter (Sailing)", "description": "4-5 hours. Delos, Rhinia, swimming.", "price": "€1,000–€2,500", "notes": "Book 4 weeks ahead (estate policy)."},
+      {"name": "Full-Day Charter (Motor)", "description": "8-10 hours. Multi-island. Chef on board.", "price": "€2,000–€5,000"},
+      {"name": "Sunset Cruise", "description": "3 hours. DJ, open bar, swimming.", "price": "€800–€1,500"},
+      {"name": "Multi-Day Yacht", "description": "Cyclades island hopping. Crew + chef.", "price": "€5,000–€15,000/day", "notes": "Mykonos → Paros → Naxos → Santorini routes available."},
+      {"name": "Fishing Charter", "description": "Traditional caïque. Fresh catch BBQ on Rhinia.", "price": "€600–€1,200", "notes": "Authentic experience. Captain cooks your catch."}
     ],
     "wellness": [
       {"name": "In-Villa Massage", "description": "Licensed therapists come to estate", "price": "€120–€250/session"},
       {"name": "Yoga (Private)", "description": "Sunrise or sunset on amphitheatre", "price": "€80–€150/session", "partners": ["@missmonkeymind", "@theyogaboheme"]},
       {"name": "Sound Healing", "description": "Crystal bowls, gongs on amphitheatre", "price": "€150–€300/group"},
-      {"name": "Ice Bath + Breathwork", "description": "Wim Hof method poolside", "price": "€100–€200/session"}
+      {"name": "Ice Bath + Breathwork", "description": "Wim Hof method poolside", "price": "€100–€200/session"},
+      {"name": "Personal Training", "description": "Estate gym or outdoor. HIIT, strength, boxing.", "price": "€100–€180/session"},
+      {"name": "Reiki + Energy Work", "description": "Private session in villa or garden", "price": "€120–€200/session"},
+      {"name": "Couples Spa Package", "description": "Dual massage + facial + champagne", "price": "€400–€600/couple"},
+      {"name": "Multi-Day Retreat", "description": "Yoga, meditation, nutrition, detox program", "price": "€1,500–€3,500/person (5 days)", "partners": ["Shri Gaia Institute"]}
     ],
     "dining": [
-      {"name": "Private Chef", "description": "Breakfast/lunch/dinner at estate", "price": "€150–€500/meal", "notes": "3 vetted chefs: Greek, Mediterranean, Asian fusion"},
+      {"name": "Private Chef (Greek)", "description": "Traditional + modern Greek cuisine", "price": "€150–€500/meal", "notes": "Farm-to-table. Sources from local fishermen and farms."},
+      {"name": "Private Chef (International)", "description": "Asian fusion, Mediterranean, French", "price": "€200–€600/meal"},
+      {"name": "Private Chef (Sushi)", "description": "Omakase experience at estate", "price": "€300–€800 (for 8-12 guests)"},
       {"name": "Restaurant Reservations", "description": "Priority bookings at all top venues", "price": "Complimentary for members", "notes": "Scorpios, Nobu, COYA, Nammos, Interni — we handle it."},
-      {"name": "Grocery Pre-stocking", "description": "Villa stocked before arrival", "price": "€100–€300 + cost"}
+      {"name": "Grocery Pre-stocking", "description": "Villa stocked before arrival", "price": "€100–€300 + cost"},
+      {"name": "Sommelier Service", "description": "Wine selection, cellar curation, tasting events", "price": "€200–€500/session"},
+      {"name": "BBQ/Grill Master", "description": "Poolside or garden BBQ with premium meats/seafood", "price": "€250–€450 (group)"},
+      {"name": "Breakfast Chef (Daily)", "description": "Fresh daily breakfast service at villa", "price": "€50–€80/person/day"}
+    ],
+    "entertainment": [
+      {"name": "DJ Booking (Local)", "description": "Mykonos-based DJs for pool/sunset sets", "price": "€500–€2,000", "contacts": ["@radio_house_myk", "@legendsmykonos"]},
+      {"name": "DJ Booking (International)", "description": "Headline talent for events", "price": "€5,000–€50,000+", "notes": "Book 6+ weeks ahead in peak season."},
+      {"name": "Live Musician (Sax/Percussion)", "description": "Sunset sessions, dinner accompaniment", "price": "€300–€800/session"},
+      {"name": "Live Band/Orchestra", "description": "Classical ensemble for amphitheatre", "price": "€2,000–€8,000"},
+      {"name": "Lighting & Production", "description": "LED, lasers, stage lighting for events", "price": "€1,000–€5,000", "contacts": ["@radio_house_myk"]},
+      {"name": "Sound System Supplement", "description": "Additional PA for large events", "price": "€500–€2,000"}
+    ],
+    "photography_video": [
+      {"name": "Vacation Photographer", "description": "2-3 hour lifestyle shoot on estate", "price": "€300–€800"},
+      {"name": "Event Photographer", "description": "Full event coverage + editing", "price": "€800–€2,000"},
+      {"name": "Drone Videography", "description": "Aerial estate + island footage", "price": "€500–€1,500"},
+      {"name": "Content Creator Package", "description": "Photo + video + Reels for social", "price": "€1,000–€3,000"},
+      {"name": "Wedding Photography", "description": "Full day + editing + album", "price": "€3,000–€8,000"}
+    ],
+    "shopping_fashion": [
+      {"name": "Personal Shopper", "description": "Guided shopping in Mykonos Town boutiques", "price": "€200–€500 + purchases"},
+      {"name": "In-Villa Styling", "description": "Stylist brings curated selection to estate", "price": "€300–€600"},
+      {"name": "Jewelry Private Viewing", "description": "Local designers bring collections to villa", "price": "Complimentary (commission-based)"}
+    ],
+    "childcare_family": [
+      {"name": "Babysitting", "description": "Vetted local professionals", "price": "€25–€40/hour"},
+      {"name": "Kids Activity Program", "description": "Swimming, crafts, beach trips", "price": "€150–€300/day"},
+      {"name": "Family Boat Trip", "description": "Kid-friendly route with snorkeling", "price": "€800–€1,500"}
+    ],
+    "special_occasions": [
+      {"name": "Proposal Setup", "description": "Helipad or amphitheatre. Flowers, champagne, photographer.", "price": "€500–€2,000"},
+      {"name": "Birthday Celebration", "description": "Full event coordination. Cake, decor, entertainment.", "price": "€1,000–€10,000"},
+      {"name": "Anniversary Dinner", "description": "Private chef + flowers + musician on helipad", "price": "€800–€3,000"},
+      {"name": "Welcome Package", "description": "Champagne, flowers, local delicacies, personalized note", "price": "€150–€500"}
+    ],
+    "adventure_sports": [
+      {"name": "Jet Ski Rental", "description": "Delivered to nearest beach", "price": "€100–€200/hour"},
+      {"name": "Paddleboard/Kayak", "description": "SUP and kayak at Super Paradise", "price": "€30–€60/hour"},
+      {"name": "Scuba Diving", "description": "Certified guides. Wrecks and reefs.", "price": "€80–€150/dive"},
+      {"name": "Horseback Riding", "description": "Beach or mountain trails", "price": "€80–€150/person"},
+      {"name": "Kitesurfing Lessons", "description": "Ftelia Beach (north coast)", "price": "€100–€200/session"}
+    ],
+    "business_corporate": [
+      {"name": "Meeting Setup", "description": "Amphitheatre as outdoor boardroom. AV, WiFi, catering.", "price": "€500–€2,000/day"},
+      {"name": "Team Building", "description": "Cooking class, boat trip, wellness, competitions", "price": "€200–€500/person"},
+      {"name": "Executive Retreat", "description": "Full estate buyout + programming", "price": "€28,000–€63,000/week + experiences"}
     ]
+  },
+  "contacts": {
+    "estate": {
+      "phone": "+30 698 418 8615",
+      "phone_villa": "+30 693 678 0434",
+      "email": "info@paradiseestatemykonos.com",
+      "instagram": "@paradise_estate_mykonos",
+      "website": "https://paradiseestatemykonos.com",
+      "security": {"name": "Pentagon Group", "url": "pentagongroup.gr", "service": "Night security + event security + VIP close protection"}
+    },
+    "partners": {
+      "yoga": [
+        {"name": "@missmonkeymind", "service": "Private/group yoga, retreats"},
+        {"name": "@theyogaboheme", "service": "Yoga, ecstatic dance"},
+        {"name": "Shri Gaia Institute", "email": "shrigaiainstitute@gmail.com", "service": "Multi-day retreats, sound healing at Delos"}
+      ],
+      "creative": {"name": "Illumina Tribe", "url": "illumina.io", "service": "Annual creative retreat, artist residency"},
+      "events": [
+        {"name": "@legendsmykonos", "service": "Event organization, talent booking"},
+        {"name": "@radio_house_myk", "service": "Lights, music production, sound"},
+        {"name": "@first_son_bar", "service": "Bar service, cocktail design, bartenders"}
+      ],
+      "concierge": {"name": "Kinglike Concierge", "url": "kinglike.com", "service": "Luxury concierge, yacht, helicopter, VIP tables"}
+    },
+    "emergency": {
+      "medical": {"name": "Mykonos Health", "url": "mykonos-health.com", "notes": "2 private clinics on island"},
+      "police": "+30 22890 22716",
+      "coast_guard": "+30 22890 22218",
+      "hospital": "Mykonos Health Center +30 22890 23994"
+    },
+    "key_venues": {
+      "scorpios": "+30 22890 29250",
+      "nammos": "+30 22890 22440",
+      "santanna": "+30 2289 025806",
+      "nobu": "Via Belvedere Hotel",
+      "cavo_paradiso": "+30 69859 19002",
+      "jackie_o": "+30 69730 10981"
+    }
   },
   "practical": {
     "taxi_tips": "Notoriously hard to find. Use club shuttles. Book private transfers. Water taxi for south coast.",
