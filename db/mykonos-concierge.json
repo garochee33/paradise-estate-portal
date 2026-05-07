@@ -187,6 +187,60 @@
       "nobu": "Via Belvedere Hotel",
       "cavo_paradiso": "+30 69859 19002",
       "jackie_o": "+30 69730 10981"
+    },
+    "personal_network": {
+      "property_owner": {"name": "Andre Chelhot", "phone": "+306981468981", "role": "Paradise Estate Owner"},
+      "estate_team": [
+        {"name": "Παναγιωτης", "phone": "+306944035773", "role": "Paradise Estate staff"},
+        {"name": "Anna Paradise", "phone": "+306933318765", "role": "Paradise Estate"},
+        {"name": "John Paradise Production", "phone": "+30 694 4373034", "role": "Production"},
+        {"name": "George Paradise Production", "phone": "+306980464752", "role": "Production"}
+      ],
+      "drivers": [
+        {"name": "Angelos", "phone": "+30 694 4782855", "role": "Driver Mykonos"},
+        {"name": "Dimitris Car Service", "phone": "+30 695 513 8002", "role": "Car service"},
+        {"name": "Yorgos (Scorpios driver)", "phone": "+30 697 7428610", "role": "Driver"},
+        {"name": "Nikos", "phone": "+306937025949", "role": "Driver"},
+        {"name": "Driver of Dimitris", "phone": "+30 694 8010416", "role": "Driver"}
+      ],
+      "venues_people": [
+        {"name": "George Bavelis", "phone": "+306949779399", "role": "Manager Scorpios"},
+        {"name": "Mario", "phone": "+306909478696", "role": "Scorpios"},
+        {"name": "Maria", "phone": "+30 697 220 1169", "role": "Scorpios"},
+        {"name": "Teo", "phone": "+30 694 618 0800", "role": "Remezzo"},
+        {"name": "ASTRA Nassos", "phone": "+306939397474", "role": "Astra Nightclub"},
+        {"name": "Lance", "phone": "+306983738843", "role": "Opia Mykonos"},
+        {"name": "Frini", "phone": "+306948596431", "role": "Secretary Alemagou"},
+        {"name": "Crystopolos", "phone": "+30 698 0229343", "role": "Ketapero Mykonos"}
+      ],
+      "entertainment": [
+        {"name": "ELiiOS", "phone": "+30 693 6595184", "role": "DJ Mykonos"},
+        {"name": "Giuseppe", "phone": "+306940745545", "role": "Saxophone (Blue Marlin)"},
+        {"name": "Alexakis Mykonian Vibes", "phone": "+30 695 7810500", "role": "Entertainment/Vibes"},
+        {"name": "Sound Guy", "phone": "+306946627450", "role": "Sound production"}
+      ],
+      "boats_water": [
+        {"name": "Aliki Boats Rental", "phone": "+30 695 1480608", "role": "Boat rental"},
+        {"name": "Dannos Sentation Cruise", "phone": "+30 697 7144704", "role": "Cruise/yacht"}
+      ],
+      "chefs_food": [
+        {"name": "Panos Chef", "phone": "+306984903765", "role": "Private chef"},
+        {"name": "Pizza Best Mykonos", "phone": "+306907639402", "role": "Pizza delivery"},
+        {"name": "Food Delivery Minions", "phone": "+306974613241", "role": "Food delivery"}
+      ],
+      "villas_property": [
+        {"name": "Akis", "phone": "+306946308530", "role": "Mykonos/Ibiza/St.Tropez Villas"},
+        {"name": "The Pearls Mykonos Villas", "phone": "+30 698 6711072", "role": "Villa rentals"},
+        {"name": "Airbnb Granite Village", "phone": "+306982800708", "role": "Mykonos accommodation"},
+        {"name": "Tru Paradise Owner", "phone": "+306949533566", "role": "Property owner"}
+      ],
+      "other_key": [
+        {"name": "Chris Pikoulas", "phone": "+30 694 624 5575", "role": "Contact"},
+        {"name": "Haig DNC Holdings", "phone": "+306947587336", "role": "Business"},
+        {"name": "IV Mykonos", "phone": "+30 2289 027466", "role": "Venue/service"},
+        {"name": "Dimitris Kirazakos", "phone": "+306932321500", "role": "Business contact"},
+        {"name": "GK Greece", "phone": "+30 694 4303045", "role": "Contact"}
+      ]
     }
   },
   "practical": {
